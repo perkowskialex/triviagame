@@ -12,9 +12,12 @@
 // cached elements
 const trivia = document.querySelectorAll('.play')
 const body = document.querySelector('body');
+const instructions = document.querySelector('.instructions');
+const instructionsText = document.querySelector('.instructionsText');
+const welcome = document.querySelector('.welcome');
 
 // app state variables
-let triviaList;
+let triviaList, questionNumber;
 
 //event listeners
 trivia.forEach(element =>{
@@ -25,10 +28,10 @@ trivia.forEach(element =>{
 
 // functions
         //initialize
-    function init() {
-        console.log('running');
-        triviaList = ['presidents','pizza','shrek','soccer'];
-        console.log('trivia list: ' + triviaList);
+function init() {
+    console.log('running');
+    triviaList = ['presidents','pizza','shrek','soccer'];
+    console.log('trivia list: ' + triviaList);
     }
             //console.log('running');
             // What type of trivia do you want to play --- splash
@@ -41,7 +44,15 @@ trivia.forEach(element =>{
         console.log('clicked ' + event.target.innerHTML);
         if (event.target.innerHTML === 'U.S. Presidents Trivia') {
             body.style.backgroundColor = 'navy';
-            
+            console.log('changing color to navy')
+            instructions.innerText = '';
+            instructionsText.textContent = "";
+            welcome.textContent = ''
+            trivia.forEach(element => {
+                console.log('changing '+ element);
+                element.style.color = 'navy';
+                element.style.innerText = '';
+            })
         }  
     }
             // change background, change data
