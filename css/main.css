@@ -16,6 +16,8 @@ body {
 }
 
 .instructions {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 30px 10px;
@@ -23,6 +25,9 @@ body {
 }
 
 .instructionsText {
+    padding: 10px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
     font-size: 20px;
     text-align: center;
     width: 50vw;

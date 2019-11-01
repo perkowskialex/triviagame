@@ -1,23 +1,35 @@
 // set constants
     // trivia sets: array of objects of arrays? so...
-const trivias = ['presidents','b','c','d']
-const presidentsTrivia = [
-    {question1: [answer1, answer2, answer3, answer4]},
-    {question2: [answer1, answer2, answer3, answer4]}]
+// const trivias = ['presidents','pizza','shrek','soccer']
+// const presidentsTrivia = [
+//     {question1: {correct, wrong1, wrong2, wrong3}},
+//     {question2: {correct, wrong1, wrong2, wrong3}},
+// ];
         // classes
         // trivia answers split by question 
     // max q's
 
+// cached elements
+const trivia = document.querySelectorAll('.play')
+const body = document.querySelector('body');
 
 // app state variables
-let trivias
+let triviaList;
 
 //event listeners
+trivia.forEach(element =>{
+   element.addEventListener('click', triviaSelect); 
+});
     //  click for which trivia select
     //  click for question - answer 
 
 // functions
         //initialize
+    function init() {
+        console.log('running');
+        triviaList = ['presidents','pizza','shrek','soccer'];
+        console.log('trivia list: ' + triviaList);
+    }
             //console.log('running');
             // What type of trivia do you want to play --- splash
             // Background music
@@ -25,6 +37,13 @@ let trivias
                 // for loop? math.random...
             // randomize answers --> how can I make it stay linked with the question? array in an object?
         //choose trivia 
+    function triviaSelect() {
+        console.log('clicked ' + event.target.innerHTML);
+        if (event.target.innerHTML === 'U.S. Presidents Trivia') {
+            body.style.backgroundColor = 'navy';
+            
+        }  
+    }
             // change background, change data
             // pop out trivia from trivia array
         //choose answer
@@ -47,4 +66,4 @@ let trivias
             //try a different trivia?
 
 //call functions
-// init();
+init();
