@@ -22,14 +22,20 @@ body {
     padding: 20px;
 }
 
+.trivia {
+    display: flex;
+    flex-direction: row;
+}
+
 .play {
     display: flex;
     background-color: peru;
     padding: 10px;
+    margin: 10px;
     font-size: 20px;
     color: whitesmoke;
     border: 2px solid whitesmoke;
-    width: 20%;
+    width: 20vh;
     justify-content: center;
 }
 
