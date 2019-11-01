@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gainsboro;
+}
+
+.main-splash {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: 500px;
+    font-size: 40px;
+    background-color: slategray;
+    color: whitesmoke;
+    align-items: center;
+}
+
+.welcome {
+    display: flex;
+    padding: 20px;
+}
+
+.play {
+    display: flex;
+    background-color: peru;
+    padding: 10px;
+    font-size: 20px;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+    width: 20%;
+    justify-content: center;
+}
+
+.play:hover {
+    background-color: whitesmoke;
+    color: peru;
+    border: 1px solid peru; 
+}
