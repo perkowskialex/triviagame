@@ -1,29 +1,36 @@
 body {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: gainsboro;
-}
-
-.main-splash {
-    display: flex;
-    flex-direction: column;
-    width: 700px;
-    height: 500px;
     font-size: 40px;
     background-color: slategray;
     color: whitesmoke;
-    align-items: center;
+    flex-direction:column;
 }
 
 .welcome {
     display: flex;
     padding: 20px;
+    justify-content: center;
+}
+
+.instructions {
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.instructionsText {
+    font-size: 20px;
+    text-align: center;
+    width: 50vw;
 }
 
 .trivia {
     display: flex;
+    justify-content: center;
     flex-direction: row;
 }
 
@@ -35,7 +42,8 @@ body {
     font-size: 20px;
     color: whitesmoke;
     border: 2px solid whitesmoke;
-    width: 20vh;
+    width: 15vw;
+    height: 10vh;
     justify-content: center;
 }
 
