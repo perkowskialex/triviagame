@@ -78,11 +78,20 @@ $('.play')
     .on(
         'click',
         function(event) {
-            console.log('clicked ' + event.target.innerHTML);
+            console.log('Selected: ' + event.target.innerHTML);
             trivia.forEach(element => { //removes buttons from HTML
                 console.log('Removing button: '+ element.innerHTML);
                 element.parentNode.removeChild(element);
             });
+        let answerTemplate = ` 
+            <tr>
+                <td><button class= "play">A</button></td>
+                <td><button class= "play">B</button></td>
+                <td><button class= "play">C</button></td>
+                <td><button class= "play">D</button></td>
+            </tr>
+            ` //append this
+        
         });
 
 function triviaSelect() {
