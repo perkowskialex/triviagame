@@ -94,6 +94,7 @@ const instructions = document.querySelector('.instructions');
 const instructionsText = document.querySelector('.instructionsText');
 const welcome = document.querySelector('.welcome');
 const box = document.querySelectorAll('.box');
+const triviaMenu = document.querySelector('.trivia-menu');
 
 // app state variables
 let triviaList, questionNumber, answerList, numberCorrect, numberWrong, answerCheckList, presidentAnswers;
@@ -102,6 +103,9 @@ let triviaList, questionNumber, answerList, numberCorrect, numberWrong, answerCh
 trivia.forEach(element =>{
    element.addEventListener('click', triviaSelect); 
 });
+triviaMenu.addEventListener('click', returnToMenu);
+
+
     //  click for which trivia select
     //  click for question - answer 
 
@@ -111,19 +115,32 @@ function init() {
     $('.boxes').toggle();
     $('.trivia-menu').toggle();
     console.log('running');
-    triviaList = ['presidents','pizza','shrek','soccer'];
+    triviaList = ['U.S. Presidents Trivia','Pizza Trivia','Shrek Trivia','Soccer Trivia'];
     console.log('trivia list: ' + triviaList);
     answerList = [];
     answerCheckList = [];
+    presidentAnswers = [];
     }
-            //console.log('running');
-            // What type of trivia do you want to play --- splash
-            // Background music
-            // randomize questions
-                // for loop? math.random...
-            // randomize answers --> how can I make it stay linked with the question? array in an object?
-        //choose trivia
 
+function returnToMenu () {
+    $('.boxes').toggle();
+    $('.answers').toggle();
+    $('.instructions').toggle();
+    $('.trivia-menu').toggle();
+    welcome.textContent = 'Welcome to Trivia!';
+    $('.play').toggle().css("background-color", "peru");
+    trivia.forEach(function(element,idx){ //change names back
+        element.textContent = triviaList[idx];
+        idx++;
+    })
+    console.log('returning to menu');
+    answerList = [];
+    answerCheckList = [];
+    if (presidentAnswers.length>0) {
+        $("#trivia1").css("background-color", 'green');
+    }
+    body.style.backgroundColor = 'slategray';
+}
 
 function triviaSelect() {
     if (event.target.innerHTML === 'U.S. Presidents Trivia') {
@@ -186,6 +203,7 @@ function render() {
     });
     console.log('answerCheckList = '+ answerCheckList);
     // check answerlist against correct answers
+    presidentAnswers = answerCheckList;
     $('.play').toggle(); //remove buttonz
     for (i=0;i<answerCheckList.length;i++) {
         if (answerCheckList[i] === '1') {
@@ -201,10 +219,10 @@ function render() {
 function drawAnswers() {
     // this function will show all answers and their selection
     let answerElement = document.createElement('answers');
+    answerElement.className = "answers"
     body.appendChild(answerElement)
     answerElement.append('Your Answers: ' + answerList);
     answerElement.style.fontSize = '20px';
-    let presidentAnswers = answerCheckList;
 }  
 
 function drawBoxes() {
