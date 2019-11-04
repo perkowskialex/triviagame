@@ -13,6 +13,7 @@ body {
     display: flex;
     padding: 20px;
     justify-content: center;
+    text-align: center;
 }
 
 .instructions {
@@ -42,6 +43,19 @@ body {
 .play {
     display: flex;
     background-color: peru;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+    width: 15vw;
+    height: 10vh;
+    justify-content: center;
+}
+
+.presidentAnswer {
+    display: flex;
+    background-color: firebrick;
     padding: 10px;
     margin: 10px;
     font-size: 20px;
