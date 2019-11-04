@@ -96,7 +96,7 @@ const welcome = document.querySelector('.welcome');
 const box = document.querySelectorAll('.box');
 
 // app state variables
-let triviaList, questionNumber, answerList, numberCorrect, numberWrong, answerCheckList;
+let triviaList, questionNumber, answerList, numberCorrect, numberWrong, answerCheckList, presidentAnswers;
 
 //event listeners
 trivia.forEach(element =>{
@@ -109,6 +109,7 @@ trivia.forEach(element =>{
         //initialize
 function init() {
     $('.boxes').toggle();
+    $('.trivia-menu').toggle();
     console.log('running');
     triviaList = ['presidents','pizza','shrek','soccer'];
     console.log('trivia list: ' + triviaList);
@@ -145,7 +146,7 @@ function presidents() {
         // console.log('Text content for ' + element + ' : ' + element.textContent); 
         idx++; //iterate
     });
-    // $('.play').addClass('.presidentAnswer').removeClass('.play');
+
     $('.play').on(
         'click', 
         function(event) {
@@ -194,6 +195,7 @@ function render() {
     welcome.textContent = 'You answered ' + numberCorrect + " out of " + answerList.length + " correctly.";
     drawAnswers();
     drawBoxes();
+    $('.trivia-menu').toggle();
 }
 
 function drawAnswers() {
@@ -202,6 +204,7 @@ function drawAnswers() {
     body.appendChild(answerElement)
     answerElement.append('Your Answers: ' + answerList);
     answerElement.style.fontSize = '20px';
+    let presidentAnswers = answerCheckList;
 }  
 
 function drawBoxes() {
