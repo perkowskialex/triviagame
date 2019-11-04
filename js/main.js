@@ -51,7 +51,7 @@ const instructionsText = document.querySelector('.instructionsText');
 const welcome = document.querySelector('.welcome');
 
 // app state variables
-let triviaList, questionNumber, correctList, wrongList, questionCount, numberCorrect, numberWrong;
+let triviaList, questionNumber, correctList, wrongList, numberCorrect, numberWrong;
 
 //event listeners
 trivia.forEach(element =>{
@@ -96,6 +96,8 @@ $('.play')
 
 function triviaSelect() {
     if (event.target.innerHTML === 'U.S. Presidents Trivia') {
+        let questionNumber = 1;
+        console.log(questionNumber)
         console.log('Running U.S. Presidents Trivia')
         body.style.backgroundColor = 'navy';
         console.log('changing color to navy')
@@ -125,6 +127,10 @@ function triviaSelect() {
                 // check answer array
             // play again?  
             //try a different trivia?
+// function answerCheck() {
+
+// }
+
 
 //call functions
 init();
