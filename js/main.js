@@ -1,5 +1,6 @@
 // set constants
 const presidentTrivia = [
+    //1
     {
         question: 'Who is the current president of the United States?',
         answers: [
@@ -7,6 +8,7 @@ const presidentTrivia = [
         ],
         correct: 'Donald Trump'
     },
+    //2
     {
         question: 'Who was the first president of the United States?',
         answers: [
@@ -14,6 +16,7 @@ const presidentTrivia = [
         ],
         correct: 'George Washington',
     },
+    //3
     {
         question: 'Who was the only U. S. President to also serve as Chief Justice of the Supreme Court?',
         answers: [
@@ -21,6 +24,62 @@ const presidentTrivia = [
         ],
         correct: 'William Howard Taft'
     },  
+    //4
+    {
+        question: 'Who was the first U.S. President to be born an American citizen?',
+        answers: [
+            'Andrew Jackson', 'Martin Van Buren', 'John Quincy Adams', 'William Henry Harrison',
+        ],
+        correct: 'Martin Van Buren'
+    },  
+    //5
+    {
+        question: 'Who was the first President to live in the White House?',
+        answers: [
+            'George Washington', 'Thomas Jefferson', 'John Adams', 'Harry Truman',
+        ],
+        correct: 'John Adams'
+    }, 
+    //6 
+    {
+        question: 'Which U. S. President made the Louisiana Purchase?',
+        answers: [
+            'John Adams', 'James Monroe', 'Andrew Jackson', 'Thomas Jefferson',
+        ],
+        correct: 'Thomas Jefferson'
+    },  
+    //7
+    {
+        question: 'Who was the only President to serve more than two terms?',
+        answers: [
+            'George Washington', 'Franklin Delano Roosevelt', 'Abraham Lincoln', 'Andrew Jackson',
+        ],
+        correct: 'Franklin Delano Roosevelt'
+    },  
+    //8    
+    {
+        question: 'What presidential candidate played a saxophone on The Arsenio Hall Show during his campaign?',
+        answers: [
+            'George W. Bush', 'Bill Clinton', 'Ronald Reagan', 'Bob Dole',
+        ],
+        correct: 'Bill Clinton'
+    },  
+    //9
+    {
+        question: 'Who was the first President to be impeached?',
+        answers: [
+            'Bill Clinton', 'Donald Trump', 'Andrew Johnson', 'Richard Nixon',
+        ],
+        correct: 'Andrew Johnson'
+    },  
+    //10
+    {
+        question: 'Who was the youngest U. S. President?',
+        answers: [
+            'John Fitzgerald Kennedy', 'Bill Clinton', 'Theodore Roosevelt', 'Barack Obama',
+        ],
+        correct: 'Theodore Roosevelt'
+    },
 ];
 
 // ];
@@ -34,9 +93,10 @@ const body = document.querySelector('body');
 const instructions = document.querySelector('.instructions');
 const instructionsText = document.querySelector('.instructionsText');
 const welcome = document.querySelector('.welcome');
+const box = document.querySelectorAll('.box');
 
 // app state variables
-let triviaList, questionNumber, answerList, numberCorrect, numberWrong, correctIndex;
+let triviaList, questionNumber, answerList, numberCorrect, numberWrong, answerCheckList;
 
 //event listeners
 trivia.forEach(element =>{
@@ -53,6 +113,7 @@ function init() {
     triviaList = ['presidents','pizza','shrek','soccer'];
     console.log('trivia list: ' + triviaList);
     answerList = [];
+    answerCheckList = [];
     }
             //console.log('running');
             // What type of trivia do you want to play --- splash
@@ -115,16 +176,21 @@ function render() {
     console.log(answerList);  // ==> working now
     presidentTrivia.forEach(function(element,idx) {
         if (element.correct === answerList[idx]) {
-            numberCorrect++;
-            correctIndex.push(idx);
+            answerCheckList.push('1');
+        }
+        if (element.correct !== answerList[idx]) {
+            answerCheckList.push('0');
         }
         idx++
     });
-    console.log('number correct: '+ numberCorrect);
-    console.log('Correct indices: ' + correctIndex);
-    numberWrong = answerList.length-numberCorrect; 
+    console.log('answerCheckList = '+ answerCheckList);
     // check answerlist against correct answers
     $('.play').toggle(); //remove buttonz
+    for (i=0;i<answerCheckList.length;i++) {
+        if (answerCheckList[i] === '1') {
+            numberCorrect++;
+        }
+    }
     welcome.textContent = 'You answered ' + numberCorrect + " out of " + answerList.length + " correctly.";
     drawAnswers();
     drawBoxes();
@@ -134,16 +200,25 @@ function drawAnswers() {
     // this function will show all answers and their selection
     let answerElement = document.createElement('answers');
     body.appendChild(answerElement)
-    answerElement.append('Your Answers: ');
-    answerElement.append(answerList);
-}
+    answerElement.append('Your Answers: ' + answerList);
+    answerElement.style.fontSize = '20px';
+}  
 
 function drawBoxes() {
     $('.boxes').toggle();
-    // let numBoxes = answerList.length;
-    // let boxesEl = document.createElement('boxes'); 
-    // body.appendChild(boxesEl);
-    // boxesEl.append('')
+    console.log('correct indices for drawBoxes = ' +correctIndex);
+    box.forEach(function(element, idx, box) {
+        console.log('box is: '+box[idx].innerHTML);
+        if (answerCheckList[idx] === '1') {
+            console.log(box[idx] + ' is correct --- changing to green')
+            box[idx].style.backgroundColor = 'chartreuse';
+        }
+        if (answerCheckList[idx] === '0') {
+            box[idx].style.backgroundColor= 'darkred';
+        }
+        box[idx].innerHTML = '';
+        idx++
+    });  
 }
 
 // end of trivia select

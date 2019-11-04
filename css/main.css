@@ -51,6 +51,7 @@ body {
     width: 15vw;
     height: 10vh;
     justify-content: center;
+    vertical-align: center;
 }
 
 .presidentAnswer {
