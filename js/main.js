@@ -36,7 +36,7 @@ const instructionsText = document.querySelector('.instructionsText');
 const welcome = document.querySelector('.welcome');
 
 // app state variables
-let triviaList, questionNumber, answerList, numberCorrect, numberWrong;
+let triviaList, questionNumber, answerList, numberCorrect, numberWrong, correctIndex;
 
 //event listeners
 trivia.forEach(element =>{
@@ -48,6 +48,7 @@ trivia.forEach(element =>{
 // functions
         //initialize
 function init() {
+    $('.boxes').toggle();
     console.log('running');
     triviaList = ['presidents','pizza','shrek','soccer'];
     console.log('trivia list: ' + triviaList);
@@ -109,19 +110,40 @@ function presidents() {
 
 function render() {
     numberCorrect = 0;
+    correctIndex = [];
     console.log("RENDER FUNCTION");
     console.log(answerList);  // ==> working now
     presidentTrivia.forEach(function(element,idx) {
         if (element.correct === answerList[idx]) {
             numberCorrect++;
+            correctIndex.push(idx);
         }
         idx++
     });
     console.log('number correct: '+ numberCorrect);
+    console.log('Correct indices: ' + correctIndex);
     numberWrong = answerList.length-numberCorrect; 
     // check answerlist against correct answers
     $('.play').toggle(); //remove buttonz
-    welcome.textContent = 'You scored ' + numberCorrect + " out of " + answerList.length;
+    welcome.textContent = 'You answered ' + numberCorrect + " out of " + answerList.length + " correctly.";
+    drawAnswers();
+    drawBoxes();
+}
+
+function drawAnswers() {
+    // this function will show all answers and their selection
+    let answerElement = document.createElement('answers');
+    body.appendChild(answerElement)
+    answerElement.append('Your Answers: ');
+    answerElement.append(answerList);
+}
+
+function drawBoxes() {
+    $('.boxes').toggle();
+    // let numBoxes = answerList.length;
+    // let boxesEl = document.createElement('boxes'); 
+    // body.appendChild(boxesEl);
+    // boxesEl.append('')
 }
 
 // end of trivia select

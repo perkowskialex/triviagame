@@ -71,3 +71,19 @@ body {
     color: peru;
     border: 1px solid peru; 
 }
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.box {
+    width: 5vh;
+    height: 5vh;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+}
