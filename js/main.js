@@ -146,6 +146,8 @@ function triviaSelect() {
     if (event.target.innerHTML === 'U.S. Presidents Trivia') {
         console.log('Running U.S. Presidents Trivia');
         body.style.backgroundColor = 'navy';
+        body.style.height = '100vh';
+        body.style.width = '100vw';
         console.log('changing color to navy');
         $('.instructions').toggle();
         presidents(); //Question 1
