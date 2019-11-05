@@ -73,6 +73,12 @@ body {
     border-radius: 5px;
 }
 
+.questions:hover {
+    background-color: whitesmoke;
+    color: black;
+    border: 1px solid black;
+}
+
 .trivia-menu {
     display: flex;
     order: 30;

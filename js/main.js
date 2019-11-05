@@ -165,11 +165,6 @@ const pizzaTrivia = [
     },
 ];
 
-// ];
-// classes
-// trivia answers split by question 
-    // max q's
-
 // cached elements
 const trivia = document.querySelectorAll('.play')
 const body = document.querySelector('body');
@@ -189,13 +184,7 @@ trivia.forEach(element =>{
 });
 triviaMenu.addEventListener('click', returnToMenu);
 
-
-    //  click for which trivia select
-    //  click for question - answer 
-
 // functions
-        //initialize
-
 function init() {
     $('.boxes').toggle();
     $('.trivia-menu').toggle();
@@ -212,7 +201,7 @@ function init() {
 
 function returnToMenu () {
     $('.boxes').toggle();
-    $('.answers').toggle();
+    $('.answers').hide();
     $('.instructions').toggle();
     $('.trivia-menu').toggle();
     welcome.textContent = 'Welcome to Trivia!';
@@ -236,7 +225,7 @@ function returnToMenu () {
 
 function triviaSelect() {
     if (event.target.innerHTML === 'U.S. Presidents Trivia') {
-        console.log('Running U.S. Presidents Trivia');
+        console.log('Selected U.S. Presidents Trivia');
         body.style.backgroundColor = 'navy';
         $('.instructions').toggle();
         questionNumber = 1;
@@ -244,7 +233,7 @@ function triviaSelect() {
         presidents(); //presidents trivia run
     }
     if (event.target.innerHTML === 'Pizza Trivia') {
-        console.log('Running Pizza Trivia');
+        console.log('Selected Pizza Trivia');
         body.style.backgroundColor = 'tomato';
         $('.instructions').toggle();
         questionNumber = 1;
@@ -260,6 +249,7 @@ function pizza() {
     console.log('Question number: ' + questionNumber);
     welcome.textContent = pizzaTrivia[0].question;
     trivia.forEach(function(element, idx) {
+        console.log('play buttons changing text content')
         element.textContent = pizzaTrivia[0].answers[idx];
         element.style.backgroundColor = 'peru';
         idx++;
@@ -301,10 +291,8 @@ function presidents() {
     trivia.forEach(function(element, idx) {
         element.textContent = presidentTrivia[0].answers[idx]; //change button text content
         element.style.backgroundColor = 'firebrick'
-        // console.log('Text content for ' + element + ' : ' + element.textContent); 
         idx++; //iterate
     });
-    // $('.play').addClass('questions').removeClass('play');
     $('.questions').on(
         'click', 
         function(event) {
@@ -391,9 +379,9 @@ function drawBoxes() {
     $('.boxes').toggle();
     console.log('correct indices for drawBoxes = ' +correctIndex);
     box.forEach(function(element, idx, box) {
-        console.log('box is: '+box[idx].innerHTML);
+        // console.log('box is: '+box[idx].id);
         if (answerCheckList[idx] === '1') {
-            console.log("Box #" + box[idx].innerHTML + ' is correct --- changing to green')
+            console.log("Box #" + box[idx].id + ' is correct --- changing to green')
             box[idx].style.backgroundColor = 'chartreuse';
         }
         if (answerCheckList[idx] === '0') {
