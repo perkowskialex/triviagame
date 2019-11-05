@@ -498,7 +498,7 @@ function geography() {
             console.log(answerList);
             welcome.textContent = geographyTrivia[questionNumber].question;
             trivia.forEach(function(element,idx){
-                element.textContent = tgeographyTrivia[questionNumber].answers[idx];
+                element.textContent = geographyTrivia[questionNumber].answers[idx];
                 console.log('Text content for ' + element + ' : ' + element.textContent); 
                 idx++; //iterate
             })
@@ -630,7 +630,7 @@ function render() {
         texasAnswers = answerCheckList;
     };
     if (currentTrivia === 'geography') {
-        texasTrivia.forEach(function(element,idx) {
+        geographyTrivia.forEach(function(element,idx) {
             if (element.correct === answerList[idx]) {
                 answerCheckList.push('1');
             }
