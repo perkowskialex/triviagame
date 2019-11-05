@@ -244,31 +244,5 @@ function drawBoxes() {
     });  
 }
 
-// end of trivia select
-            // change background, change data
-            // pop out trivia from trivia array
-        //choose answer
-            //if correct 
-                // push to answer array with value of 1;
-            //if wrong
-                // push to answer array with value of 0;
-        //render
-            //whats the score 
-                // answer.forEach (if 0) {x.style.backgroundColor = red}
-                // answer.forEach (if 1) {x.style.backgroundColor = green}
-            // whats the question and whats the question number
-            // is the game over?
-                // array length < x
-        //game over
-            // GOTO: splash screen
-            // final score
-                // check answer array
-            // play again?  
-            //try a different trivia?
-// function answerCheck() {
-
-// }
-
-
 //call functions
 init();
