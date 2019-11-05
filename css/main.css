@@ -58,6 +58,21 @@ body {
     border-radius: 5px;
 }
 
+.questions {
+    display: flex;
+    background-color: peru;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+    width: 15vw;
+    height: 15vh;
+    justify-content: center;
+    vertical-align: center;
+    border-radius: 5px;
+}
+
 .trivia-menu {
     display: flex;
     order: 30;

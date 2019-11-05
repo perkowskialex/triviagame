@@ -195,6 +195,7 @@ triviaMenu.addEventListener('click', returnToMenu);
 
 // functions
         //initialize
+
 function init() {
     $('.boxes').toggle();
     $('.trivia-menu').toggle();
@@ -215,6 +216,7 @@ function returnToMenu () {
     $('.instructions').toggle();
     $('.trivia-menu').toggle();
     welcome.textContent = 'Welcome to Trivia!';
+    $('.questions').addClass('play').removeClass('questions')
     $('.play').toggle().css("background-color", "peru");
     trivia.forEach(function(element,idx){ //change names back
         element.textContent = triviaList[idx];
@@ -237,12 +239,16 @@ function triviaSelect() {
         console.log('Running U.S. Presidents Trivia');
         body.style.backgroundColor = 'navy';
         $('.instructions').toggle();
+        questionNumber = 1;
+        $('.play').addClass('questions').removeClass('play');
         presidents(); //presidents trivia run
     }
     if (event.target.innerHTML === 'Pizza Trivia') {
         console.log('Running Pizza Trivia');
         body.style.backgroundColor = 'tomato';
         $('.instructions').toggle();
+        questionNumber = 1;
+        $('.play').addClass('questions').removeClass('play');
         pizza(); //Pizza Trivia run
     }
 }
@@ -251,7 +257,6 @@ function pizza() {
     answerCheckList = [];
     currentTrivia = 'pizza'
     console.log('PIZZA TRIVIA RUNNING');
-    questionNumber = 1;
     console.log('Question number: ' + questionNumber);
     welcome.textContent = pizzaTrivia[0].question;
     trivia.forEach(function(element, idx) {
@@ -259,12 +264,13 @@ function pizza() {
         element.style.backgroundColor = 'peru';
         idx++;
     })
-    $('.play').on(
+    $('.questions').on(
         'click', 
         function(event) {
             if (currentTrivia !== 'pizza') {
                 return;
             }
+            console.log('jquery pizza click function running')
             let text = event.target.textContent;
             console.log(text);
             answerList.push(text); //add to answer array
@@ -290,7 +296,6 @@ function presidents() {
     answerCheckList = [];
     currentTrivia = 'presidents'
     console.log('PRESIDENTS TRIVIA RUNNING')
-    questionNumber = 1;
     console.log('PRESIDENT TRIVIA QUESTION NUMBER = ' + questionNumber)
     welcome.textContent = presidentTrivia[0].question;
     trivia.forEach(function(element, idx) {
@@ -299,13 +304,14 @@ function presidents() {
         // console.log('Text content for ' + element + ' : ' + element.textContent); 
         idx++; //iterate
     });
-
-    $('.play').on(
+    // $('.play').addClass('questions').removeClass('play');
+    $('.questions').on(
         'click', 
         function(event) {
             if (currentTrivia !== 'presidents') {
                 return;
-            }
+            }            
+            console.log('jquery presidents click function running') 
             let text = event.target.textContent;
             console.log(text);
             answerList.push(text); //add to answer array
@@ -360,7 +366,7 @@ function render() {
     
     console.log('answerCheckList = '+ answerCheckList);
     // check answerlist against correct answers
-    $('.play').toggle(); //remove buttonz
+    $('.questions').toggle(); //remove buttonz
     for (i=0;i<answerCheckList.length;i++) {
         if (answerCheckList[i] === '1') {
             numberCorrect++;
@@ -387,7 +393,7 @@ function drawBoxes() {
     box.forEach(function(element, idx, box) {
         console.log('box is: '+box[idx].innerHTML);
         if (answerCheckList[idx] === '1') {
-            console.log(box[idx] + ' is correct --- changing to green')
+            console.log("Box #" + box[idx].innerHTML + ' is correct --- changing to green')
             box[idx].style.backgroundColor = 'chartreuse';
         }
         if (answerCheckList[idx] === '0') {
