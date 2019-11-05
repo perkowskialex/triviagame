@@ -82,6 +82,89 @@ const presidentTrivia = [
     },
 ];
 
+const pizzaTrivia = [
+    //1
+    {
+        question: 'Where was the first pizzeria started?',
+        answers: [
+            'Palermo','New York City','Naples', 'Rome'
+        ],
+        correct: 'Naples'
+    },
+    //2
+    {
+        question: 'When is National Pizza Month?',
+        answers: [
+            'July', 'October', 'March', 'November'
+        ],
+        correct: 'October',
+    },
+    //3
+    {
+        question: 'Where was the deep dish pizza invented?',
+        answers: [
+            'Detroit', 'New York City', 'New Haven', 'Chicago',
+        ],
+        correct: 'Chicago'
+    },  
+    //4
+    {
+        question: 'What is the most popular day for pizza?',
+        answers: [
+            'Saturday', 'Monday', 'Sunday', 'Friday',
+        ],
+        correct: 'Saturday'
+    },  
+    //5
+    {
+        question: 'What is the least popular pizza topping?',
+        answers: [
+            'Anchovies', 'Pineapple', 'Spinach', 'Mushrooms',
+        ],
+        correct: 'Anchovies'
+    }, 
+    //6 
+    {
+        question: 'What is the most common pizza cheese?',
+        answers: [
+            'Ricotta', 'Mozzarella', 'Parmesan', 'Provolone',
+        ],
+        correct: 'Mozzarella'
+    },  
+    //7
+    {
+        question: 'What is the top day for pizza consumption in the United States?',
+        answers: [
+            'Fourth of July', 'New Years Eve', 'Thanksgiving', 'Super Bowl Sunday',
+        ],
+        correct: 'Super Bowl Sunday'
+    },  
+    //8    
+    {
+        question: 'What is the most common topping for pizza?',
+        answers: [
+            'Olives', 'Cheese', 'Pepperoni', 'Sausage',
+        ],
+        correct: 'Pepperoni'
+    },  
+    //9
+    {
+        question: 'How many slices of pizza does the average American eat in a year?',
+        answers: [
+            '46', '16', '65', '32',
+        ],
+        correct: '46'
+    },  
+    //10
+    {
+        question: 'What is the largest pizza chain?',
+        answers: [
+            'Pizza Hut', "Domino's", "Papa John's", 'Chuck E. Cheese',
+        ],
+        correct: "Domino's"
+    },
+];
+
 // ];
 // classes
 // trivia answers split by question 
@@ -95,9 +178,10 @@ const instructionsText = document.querySelector('.instructionsText');
 const welcome = document.querySelector('.welcome');
 const box = document.querySelectorAll('.box');
 const triviaMenu = document.querySelector('.trivia-menu');
+//how can i select an animation element?? play:hover;
 
 // app state variables
-let triviaList, questionNumber, answerList, numberCorrect, numberWrong, answerCheckList, presidentAnswers;
+let triviaList, questionNumber, answerList, numberCorrect, numberWrong, answerCheckList, presidentAnswers, currentTrivia;
 
 //event listeners
 trivia.forEach(element =>{
@@ -115,11 +199,14 @@ function init() {
     $('.boxes').toggle();
     $('.trivia-menu').toggle();
     console.log('running');
-    triviaList = ['U.S. Presidents Trivia','Pizza Trivia','Shrek Trivia','Soccer Trivia'];
+    triviaList = ['U.S. Presidents Trivia','Shrek Trivia','Pizza Trivia','Soccer Trivia'];
     console.log('trivia list: ' + triviaList);
     answerList = [];
     answerCheckList = [];
     presidentAnswers = [];
+    pizzaAnswers = [];
+    soccerAnswers = [];
+    shrekAnswers = [];
     }
 
 function returnToMenu () {
@@ -139,6 +226,9 @@ function returnToMenu () {
     if (presidentAnswers.length>0) {
         $("#trivia1").css("background-color", 'green');
     }
+    if (pizzaAnswers.length>0) {
+        $("#trivia3").css("background-color", 'green');
+    }
     body.style.backgroundColor = 'slategray';
 }
 
@@ -146,17 +236,61 @@ function triviaSelect() {
     if (event.target.innerHTML === 'U.S. Presidents Trivia') {
         console.log('Running U.S. Presidents Trivia');
         body.style.backgroundColor = 'navy';
-        body.style.height = '100vh';
-        body.style.width = '100vw';
-        console.log('changing color to navy');
         $('.instructions').toggle();
-        presidents(); //Question 1
+        presidents(); //presidents trivia run
+    }
+    if (event.target.innerHTML === 'Pizza Trivia') {
+        console.log('Running Pizza Trivia');
+        body.style.backgroundColor = 'tomato';
+        $('.instructions').toggle();
+        pizza(); //Pizza Trivia run
     }
 }
 
+function pizza() {
+    answerCheckList = [];
+    currentTrivia = 'pizza'
+    console.log('PIZZA TRIVIA RUNNING');
+    questionNumber = 1;
+    console.log('Question number: ' + questionNumber);
+    welcome.textContent = pizzaTrivia[0].question;
+    trivia.forEach(function(element, idx) {
+        element.textContent = pizzaTrivia[0].answers[idx];
+        element.style.backgroundColor = 'peru';
+        idx++;
+    })
+    $('.play').on(
+        'click', 
+        function(event) {
+            if (currentTrivia !== 'pizza') {
+                return;
+            }
+            let text = event.target.textContent;
+            console.log(text);
+            answerList.push(text); //add to answer array
+            if (questionNumber === pizzaTrivia.length) { //end function if out of questions
+                render();
+                return;
+                }
+            console.log(answerList);
+            welcome.textContent = pizzaTrivia[questionNumber].question;
+            trivia.forEach(function(element,idx){
+                element.textContent = pizzaTrivia[questionNumber].answers[idx];
+                console.log('Text content for ' + element + ' : ' + element.textContent); 
+                idx++; //iterate
+            })
+            questionNumber++
+            console.log("new question number is: "+ questionNumber);
+        }
+    )
+}
+
+
 function presidents() {
+    answerCheckList = [];
+    currentTrivia = 'presidents'
     console.log('PRESIDENTS TRIVIA RUNNING')
-    let questionNumber = 1;
+    questionNumber = 1;
     console.log('PRESIDENT TRIVIA QUESTION NUMBER = ' + questionNumber)
     welcome.textContent = presidentTrivia[0].question;
     trivia.forEach(function(element, idx) {
@@ -169,6 +303,9 @@ function presidents() {
     $('.play').on(
         'click', 
         function(event) {
+            if (currentTrivia !== 'presidents') {
+                return;
+            }
             let text = event.target.textContent;
             console.log(text);
             answerList.push(text); //add to answer array
@@ -194,18 +331,35 @@ function render() {
     correctIndex = [];
     console.log("RENDER FUNCTION");
     console.log(answerList);  // ==> working now
-    presidentTrivia.forEach(function(element,idx) {
-        if (element.correct === answerList[idx]) {
-            answerCheckList.push('1');
-        }
-        if (element.correct !== answerList[idx]) {
-            answerCheckList.push('0');
-        }
-        idx++
-    });
+    console.log('current trivia is: '+currentTrivia)
+    if (currentTrivia === 'presidents') {
+        presidentTrivia.forEach(function(element,idx) {
+            if (element.correct === answerList[idx]) {
+                answerCheckList.push('1');
+            }
+            if (element.correct !== answerList[idx]) {
+                answerCheckList.push('0');
+            }
+            idx++
+        })
+        presidentAnswers = answerCheckList;
+    };
+
+    if (currentTrivia === 'pizza') {
+        pizzaTrivia.forEach(function(element,idx) {
+            if (element.correct === answerList[idx]) {
+                answerCheckList.push('1');
+            }
+            if (element.correct !== answerList[idx]) {
+                answerCheckList.push('0');
+            }
+            idx++
+        });
+        pizzaAnswers = answerCheckList;
+    };
+    
     console.log('answerCheckList = '+ answerCheckList);
     // check answerlist against correct answers
-    presidentAnswers = answerCheckList;
     $('.play').toggle(); //remove buttonz
     for (i=0;i<answerCheckList.length;i++) {
         if (answerCheckList[i] === '1') {
