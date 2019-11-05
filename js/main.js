@@ -165,6 +165,172 @@ const pizzaTrivia = [
     },
 ];
 
+const geographyTrivia = [
+    //1
+    {
+        question: 'What is the largest U.S. state?',
+        answers: [
+            'California','New York','Alaska', 'Texas'
+        ],
+        correct: 'Alaska'
+    },
+    //2
+    {
+        question: 'What is the smallest U.S. state??',
+        answers: [
+            'Rhode Island', 'Vermont', 'Hawaii', 'Delaware'
+        ],
+        correct: 'Rhode Island',
+    },
+    //3
+    {
+        question: 'What is the largest lake in North America?',
+        answers: [
+            'Lake Michigan', 'Lake Superior', 'Lake of the Ozarks', 'Lake Erie',
+        ],
+        correct: 'Lake Superior'
+    },  
+    //4
+    {
+        question: 'What is the largest country?',
+        answers: [
+            'Italy', 'Brazil', 'Canada', 'Russia',
+        ],
+        correct: 'Russia'
+    },  
+    //5
+    {
+        question: 'What is the capital of Spain?',
+        answers: [
+            'Barcelona', 'Sevilla', 'Madrid', 'Toledo',
+        ],
+        correct: 'Madrid'
+    }, 
+    //6 
+    {
+        question: 'In which continent is Australia?',
+        answers: [
+            'North America', 'Europe', 'Australia', 'Africa',
+        ],
+        correct: 'Australia'
+    },  
+    //7
+    {
+        question: 'What is the longest river in the world?',
+        answers: [
+            'Yangtze', 'Amazon', 'Mississippi', 'Nile',
+        ],
+        correct: 'Nile'
+    },  
+    //8    
+    {
+        question: "What is Africa's tallest mountain?",
+        answers: [
+            'Kenya', 'Kilimanjaro', 'Mt. Stanley', 'Everest',
+        ],
+        correct: 'Kilimanjaro'
+    },  
+    //9
+    {
+        question: 'What country contains the Suez Canal?',
+        answers: [
+            'Sudan', 'Israel', 'Suez', 'Egypt',
+        ],
+        correct: 'Egypt'
+    },  
+    //10
+    {
+        question: 'In what continent is Morocco?',
+        answers: [
+            'Middle East', "South America", "Africa", 'Europe',
+        ],
+        correct: "Africa"
+    },
+];
+
+const texasTrivia = [
+    //1
+    {
+        question: 'What year did Texas gain independence?',
+        answers: [
+            '1776','1836','1845', '1865'
+        ],
+        correct: '1836'
+    },
+    //2
+    {
+        question: 'What is the capital of Texas?',
+        answers: [
+            'Austin', 'Houston', 'Dallas', 'San Antonio'
+        ],
+        correct: 'Austin',
+    },
+    //3
+    {
+        question: 'Who is the Governor of Texas?',
+        answers: [
+            'Dan Patrick', 'Rick Perry', 'Ann Richards', 'Gregg Abbott',
+        ],
+        correct: 'Gregg Abbott'
+    },  
+    //4
+    {
+        question: 'What year did Texas join the United States?',
+        answers: [
+            '1845', '1848', '1789', '1836',
+        ],
+        correct: '1845'
+    },  
+    //5
+    {
+        question: 'What is the largest city in Texas?',
+        answers: [
+            'El Paso', 'Dallas', 'Austin', 'Houston',
+        ],
+        correct: 'Houston'
+    }, 
+    //6 
+    {
+        question: 'How many people live in Texas?',
+        answers: [
+            '40 million', '29 million', '25 million', '35 million',
+        ],
+        correct: '29 million'
+    },  
+    //7
+    {
+        question: 'How many presidents were born in Texas?',
+        answers: [
+            '1', '4', '2', '3',
+        ],
+        correct: '2'
+    },  
+    //8    
+    {
+        question: "What is the longest river in Texas?",
+        answers: [
+            'Colorado River', 'Sabine River', 'Red River', 'Rio Grande',
+        ],
+        correct: 'Rio Grande'
+    },  
+    //9
+    {
+        question: 'Who was the first President of Texas?',
+        answers: [
+            'Sam Houston', 'Mirabeau Lamar', 'Rick Perry', 'Lorenzo de Zavala',
+        ],
+        correct: 'Sam Houston'
+    },  
+    //10
+    {
+        question: 'Where is the Alamo?',
+        answers: [
+            'Corpus Christi', "San Antonio", "Austin", 'Victoria',
+        ],
+        correct: "San Antonio"
+    },
+];
+
 // cached elements
 const trivia = document.querySelectorAll('.play')
 const body = document.querySelector('body');
@@ -176,7 +342,7 @@ const triviaMenu = document.querySelector('.trivia-menu');
 //how can i select an animation element?? play:hover;
 
 // app state variables
-let triviaList, questionNumber, answerList, numberCorrect, numberWrong, answerCheckList, presidentAnswers, currentTrivia;
+let triviaList, questionNumber, answerList, numberCorrect, numberWrong, answerCheckList, presidentAnswers, pizzaAnswers, texasAnswers, geographyAnswers, currentTrivia;
 
 //event listeners
 trivia.forEach(element =>{
@@ -189,14 +355,14 @@ function init() {
     $('.boxes').toggle();
     $('.trivia-menu').toggle();
     console.log('running');
-    triviaList = ['U.S. Presidents Trivia','Shrek Trivia','Pizza Trivia','Soccer Trivia'];
+    triviaList = ['U.S. Presidents Trivia','Texas Trivia','Pizza Trivia','Geography Trivia'];
     console.log('trivia list: ' + triviaList);
     answerList = [];
     answerCheckList = [];
     presidentAnswers = [];
     pizzaAnswers = [];
-    soccerAnswers = [];
-    shrekAnswers = [];
+    texasAnswers = [];
+    geographyAnswers = [];
     }
 
 function returnToMenu () {
@@ -217,8 +383,14 @@ function returnToMenu () {
     if (presidentAnswers.length>0) {
         $("#trivia1").css("background-color", 'green');
     }
+    if (texasAnswers.length>0) {
+        $("#trivia2").css("background-color", 'green');
+    }
     if (pizzaAnswers.length>0) {
         $("#trivia3").css("background-color", 'green');
+    }
+    if (geographyAnswers.length>0) {
+        $("#trivia4").css("background-color", 'green');
     }
     body.style.backgroundColor = 'slategray';
 }
@@ -240,6 +412,100 @@ function triviaSelect() {
         $('.play').addClass('questions').removeClass('play');
         pizza(); //Pizza Trivia run
     }
+    if (event.target.innerHTML === 'Texas Trivia') {
+        console.log('Selected Texas Trivia');
+        body.style.backgroundColor = 'darkred';
+        $('.instructions').toggle();
+        questionNumber = 1;
+        $('.play').addClass('questions').removeClass('play');
+        texas(); //texas Trivia run   
+    }
+    if (event.target.innerHTML === 'Geography Trivia') {
+        console.log('Selected Geography Trivia');
+        body.style.backgroundColor = 'steelblue';
+        $('.instructions').toggle();
+        questionNumber = 1;
+        $('.play').addClass('questions').removeClass('play');
+        geography(); //Geography Trivia run 
+    }
+}
+
+function texas() {
+    answerCheckList = [];
+    currentTrivia = 'texas'
+    console.log('TEXAS TRIVIA RUNNING');
+    console.log('Question number: ' + questionNumber);
+    welcome.textContent = texasTrivia[0].question;
+    trivia.forEach(function(element, idx) {
+        console.log('play buttons changing text content')
+        element.textContent = texasTrivia[0].answers[idx];
+        element.style.backgroundColor = 'midnightblue';
+        idx++;
+    })
+    $('.questions').on(
+        'click', 
+        function(event) {
+            if (currentTrivia !== 'texas') {
+                return;
+            }
+            console.log('jquery texas click function running')
+            let text = event.target.textContent;
+            console.log(text);
+            answerList.push(text); //add to answer array
+            if (questionNumber === texasTrivia.length) { //end function if out of questions
+                render();
+                return;
+                }
+            console.log(answerList);
+            welcome.textContent = texasTrivia[questionNumber].question;
+            trivia.forEach(function(element,idx){
+                element.textContent = texasTrivia[questionNumber].answers[idx];
+                console.log('Text content for ' + element + ' : ' + element.textContent); 
+                idx++; //iterate
+            })
+            questionNumber++
+            console.log("new question number is: "+ questionNumber);
+        }
+    )
+}
+
+function geography() {
+    answerCheckList = [];
+    currentTrivia = 'geography'
+    console.log('GEOGRAPHY TRIVIA RUNNING');
+    console.log('Question number: ' + questionNumber);
+    welcome.textContent = geographyTrivia[0].question;
+    trivia.forEach(function(element, idx) {
+        console.log('play buttons changing text content')
+        element.textContent = geographyTrivia[0].answers[idx];
+        element.style.backgroundColor = 'darkgreen';
+        idx++;
+    })
+    $('.questions').on(
+        'click', 
+        function(event) {
+            if (currentTrivia !== 'geography') {
+                return;
+            }
+            console.log('jquery geography click function running')
+            let text = event.target.textContent;
+            console.log(text);
+            answerList.push(text); //add to answer array
+            if (questionNumber === geographyTrivia.length) { //end function if out of questions
+                render();
+                return;
+                }
+            console.log(answerList);
+            welcome.textContent = geographyTrivia[questionNumber].question;
+            trivia.forEach(function(element,idx){
+                element.textContent = tgeographyTrivia[questionNumber].answers[idx];
+                console.log('Text content for ' + element + ' : ' + element.textContent); 
+                idx++; //iterate
+            })
+            questionNumber++
+            console.log("new question number is: "+ questionNumber);
+        }
+    )
 }
 
 function pizza() {
@@ -350,6 +616,30 @@ function render() {
             idx++
         });
         pizzaAnswers = answerCheckList;
+    };
+    if (currentTrivia === 'texas') {
+        texasTrivia.forEach(function(element,idx) {
+            if (element.correct === answerList[idx]) {
+                answerCheckList.push('1');
+            }
+            if (element.correct !== answerList[idx]) {
+                answerCheckList.push('0');
+            }
+            idx++
+        });
+        texasAnswers = answerCheckList;
+    };
+    if (currentTrivia === 'geography') {
+        texasTrivia.forEach(function(element,idx) {
+            if (element.correct === answerList[idx]) {
+                answerCheckList.push('1');
+            }
+            if (element.correct !== answerList[idx]) {
+                answerCheckList.push('0');
+            }
+            idx++
+        });
+        geographyAnswers = answerCheckList;
     };
     
     console.log('answerCheckList = '+ answerCheckList);
