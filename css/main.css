@@ -98,7 +98,7 @@ body {
 .geography {
     width: 100vw;
     height: 100vh;
-    background-color: darkgreen;
+    background-color: midnightblue;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -107,12 +107,9 @@ body {
 
 .presAnswer, .pizzaAnswer, .geoAnswer, .txAnswer {
     display: flex;
-    background-color: peru;
     padding: 10px;
     margin: 10px;
     font-size: 20px;
-    color: whitesmoke;
-    border: 2px solid whitesmoke;
     width: 20vw;
     height: 10vh;
     justify-content: center;
@@ -120,6 +117,30 @@ body {
     border-radius: 5px;
     flex-direction: row;
 } 
+
+.txAnswer {
+    background-color: firebrick;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
+
+.geoAnswer {
+    background-color: darkgreen;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
+
+.presAnswer {
+    background-color: midnightblue;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
+
+.pizzaAnswer {
+    background-color: slategray;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
 
 .trivia-menu {
     display: flex;
