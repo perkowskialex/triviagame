@@ -498,7 +498,6 @@ function play() {
     questionNumber = 0;
     console.log('Starting question: ' + questionNumber)
     currentQuestion = currentTrivia.questions[questionNumber].question;
-    currentAnswer = currentTrivia.questions[questionNumber].answer;
     questionText[0].textContent = currentQuestion; 
     console.log('Playing ' + currentTrivia.category);
     answerButtons.forEach(function(element,idx){
@@ -520,8 +519,8 @@ function questionSelect() {
     } 
     currentQuestion = currentTrivia.questions[questionNumber].question;
     questionText[0].textContent = currentQuestion; 
-    currentAnswer = event.target.textContent; 
-    console.log(currentQuestion + ' setting answer to ' + currentAnswer)
+    currentTrivia.questions[questionNumber].answer = event.target.textContent; 
+    console.log(currentQuestion + ' setting answer to ' + currentTrivia.questions[questionNumber].answer)
     questionNumber++;
     console.log('current question is: ' + currentQuestion)
     console.log(event.target.textContent);
@@ -537,16 +536,16 @@ function render() {
     correctIndex = [];
     console.log("RENDER FUNCTION");
     console.log('current trivia is: '+currentTrivia.category)
-    currentTrivia.questions.forEach(function(element,idx){
-        if (element[idx].answer === element[idx].correct) {
+    currentTrivia.questions.forEach(function(element,idx, question){ 
+        if (question[idx].answer === question[idx].correct) {
             correctIndex.push(idx);
-            idx++;
         }
+        idx++;
     });
     console.log('correct indices are: '+correctIndex)
     // drawAnswers();
     drawBoxes();
-    $('.trivia-menu').toggle();
+    $('.trivia-menu').show();
 }
 
 // function drawAnswers() {
