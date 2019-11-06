@@ -5,95 +5,95 @@ const allTrivia = [
         questions: [
             //1
             {
-            question: 'Who is the current president of the United States?',
-            answers: [
-                'Hillary Clinton','Barack Obama','George Washington', 'Donald Trump'
+                question: 'Who is the current president of the United States?',
+                answers: [
+                    'Hillary Clinton', 'Barack Obama', 'George Washington', 'Donald Trump'
                 ],
-            correct: 'Donald Trump',
-            answer: null
+                correct: 'Donald Trump',
+                answer: null
             },
             //2
             {
-            question: 'Who was the first president of the United States?',
-            answers: [
-                'Thomas Jefferson', 'George Washington', 'Alexander Hamilton', 'John Adams'
+                question: 'Who was the first president of the United States?',
+                answers: [
+                    'Thomas Jefferson', 'George Washington', 'Alexander Hamilton', 'John Adams'
                 ],
-            correct: 'George Washington',
-            answer: null
+                correct: 'George Washington',
+                answer: null
             },
             //3
             {
-            question: 'Who was the only U. S. President to also serve as Chief Justice of the Supreme Court?',
-            answers: [
-                'William Howard Taft', 'Abraham Lincoln', 'Theodore Roosevelt', 'Millard Fillmore',
+                question: 'Who was the only U. S. President to also serve as Chief Justice of the Supreme Court?',
+                answers: [
+                    'William Howard Taft', 'Abraham Lincoln', 'Theodore Roosevelt', 'Millard Fillmore',
                 ],
-            correct: 'William Howard Taft',
-            answer: null
-            },  
+                correct: 'William Howard Taft',
+                answer: null
+            },
             //4
             {
-            question: 'Who was the first U.S. President to be born an American citizen?',
-            answers: [
-                'Andrew Jackson', 'Martin Van Buren', 'John Quincy Adams', 'William Henry Harrison',
+                question: 'Who was the first U.S. President to be born an American citizen?',
+                answers: [
+                    'Andrew Jackson', 'Martin Van Buren', 'John Quincy Adams', 'William Henry Harrison',
                 ],
-            correct: 'Martin Van Buren',
-            answer: null
-            },  
+                correct: 'Martin Van Buren',
+                answer: null
+            },
             //5
             {
-            question: 'Who was the first President to live in the White House?',
-            answers: [
-                'George Washington', 'Thomas Jefferson', 'John Adams', 'Harry Truman',
+                question: 'Who was the first President to live in the White House?',
+                answers: [
+                    'George Washington', 'Thomas Jefferson', 'John Adams', 'Harry Truman',
                 ],
-            correct: 'John Adams',
-            answer: null
-            }, 
+                correct: 'John Adams',
+                answer: null
+            },
             //6 
             {
-            question: 'Which U. S. President made the Louisiana Purchase?',
-            answers: [
-                'John Adams', 'James Monroe', 'Andrew Jackson', 'Thomas Jefferson',
+                question: 'Which U. S. President made the Louisiana Purchase?',
+                answers: [
+                    'John Adams', 'James Monroe', 'Andrew Jackson', 'Thomas Jefferson',
                 ],
-            correct: 'Thomas Jefferson',
-            answer: null
-            },  
+                correct: 'Thomas Jefferson',
+                answer: null
+            },
             //7
             {
-            question: 'Who was the only President to serve more than two terms?',
-            answers: [
-                'George Washington', 'Franklin Delano Roosevelt', 'Abraham Lincoln', 'Andrew Jackson',
+                question: 'Who was the only President to serve more than two terms?',
+                answers: [
+                    'George Washington', 'Franklin Delano Roosevelt', 'Abraham Lincoln', 'Andrew Jackson',
                 ],
-            correct: 'Franklin Delano Roosevelt',
-            answer: null
-            },  
+                correct: 'Franklin Delano Roosevelt',
+                answer: null
+            },
             //8    
             {
-            question: 'What presidential candidate played a saxophone on The Arsenio Hall Show during his campaign?',
-            answers: [
-                'George W. Bush', 'Bill Clinton', 'Ronald Reagan', 'Bob Dole',
+                question: 'What presidential candidate played a saxophone on The Arsenio Hall Show during his campaign?',
+                answers: [
+                    'George W. Bush', 'Bill Clinton', 'Ronald Reagan', 'Bob Dole',
                 ],
-            correct: 'Bill Clinton',
-            answer: null
-            },  
+                correct: 'Bill Clinton',
+                answer: null
+            },
             //9
             {
-            question: 'Who was the first President to be impeached?',
-            answers: [
-                'Bill Clinton', 'Donald Trump', 'Andrew Johnson', 'Richard Nixon',
+                question: 'Who was the first President to be impeached?',
+                answers: [
+                    'Bill Clinton', 'Donald Trump', 'Andrew Johnson', 'Richard Nixon',
                 ],
-            correct: 'Andrew Johnson',
-            answer: null
-            },  
+                correct: 'Andrew Johnson',
+                answer: null
+            },
             //10
             {
-            question: 'Who was the youngest U. S. President?',
-            answers: [
-                'John Fitzgerald Kennedy', 'Bill Clinton', 'Theodore Roosevelt', 'Barack Obama',
+                question: 'Who was the youngest U. S. President?',
+                answers: [
+                    'John Fitzgerald Kennedy', 'Bill Clinton', 'Theodore Roosevelt', 'Barack Obama',
                 ],
-            correct: 'Theodore Roosevelt',
-            answer: null
+                correct: 'Theodore Roosevelt',
+                answer: null
             },
-            ]
+        ]
     },
     {
         category: 'pizza',
@@ -102,7 +102,7 @@ const allTrivia = [
             {
                 question: 'Where was the first pizzeria started?',
                 answers: [
-                    'Palermo','New York City','Naples', 'Rome'
+                    'Palermo', 'New York City', 'Naples', 'Rome'
                 ],
                 correct: 'Naples',
                 answer: null
@@ -124,7 +124,7 @@ const allTrivia = [
                 ],
                 correct: 'Chicago',
                 answer: null
-            },  
+            },
             //4
             {
                 question: 'What is the most popular day for pizza?',
@@ -133,7 +133,7 @@ const allTrivia = [
                 ],
                 correct: 'Saturday',
                 answer: null
-            },  
+            },
             //5
             {
                 question: 'What is the least popular pizza topping?',
@@ -142,7 +142,7 @@ const allTrivia = [
                 ],
                 correct: 'Anchovies',
                 answer: null
-            }, 
+            },
             //6 
             {
                 question: 'What is the most common pizza cheese?',
@@ -151,7 +151,7 @@ const allTrivia = [
                 ],
                 correct: 'Mozzarella',
                 answer: null
-            },  
+            },
             //7
             {
                 question: 'What is the top day for pizza consumption in the United States?',
@@ -160,7 +160,7 @@ const allTrivia = [
                 ],
                 correct: 'Super Bowl Sunday',
                 answer: null
-            },  
+            },
             //8    
             {
                 question: 'What is the most common topping for pizza?',
@@ -169,7 +169,7 @@ const allTrivia = [
                 ],
                 correct: 'Pepperoni',
                 answer: null
-            },  
+            },
             //9
             {
                 question: 'How many slices of pizza does the average American eat in a year?',
@@ -178,7 +178,7 @@ const allTrivia = [
                 ],
                 correct: '46',
                 answer: null
-            },  
+            },
             //10
             {
                 question: 'What is the largest pizza chain?',
@@ -191,195 +191,196 @@ const allTrivia = [
         ]
     },
     {
-    category: 'geography',
-    questions: [
-        //1
-        {
-            question: 'What is the largest U.S. state?',
-            answers: [
-                'California','New York','Alaska', 'Texas'
-            ],
-            correct: 'Alaska',
-            answer: null
-        },
-        //2
-        {
-            question: 'What is the smallest U.S. state??',
-            answers: [
-                'Rhode Island', 'Vermont', 'Hawaii', 'Delaware'
-            ],
-            correct: 'Rhode Island',
-            answer: null
-        },
-        //3
-        {
-            question: 'What is the largest lake in North America?',
-            answers: [
-                'Lake Michigan', 'Lake Superior', 'Lake of the Ozarks', 'Lake Erie',
-            ],
-            correct: 'Lake Superior',
-            answer: null
-        },  
-        //4
-        {
-            question: 'What is the largest country?',
-            answers: [
-                'Italy', 'Brazil', 'Canada', 'Russia',
-            ],
-            correct: 'Russia',
-            answer: null
-        },  
-        //5
-        {
-            question: 'What is the capital of Spain?',
-            answers: [
-                'Barcelona', 'Sevilla', 'Madrid', 'Toledo',
-            ],
-            correct: 'Madrid',
-            answer: null
-        }, 
-        //6 
-        {
-            question: 'In which continent is Australia?',
-            answers: [
-                'North America', 'Europe', 'Australia', 'Africa',
-            ],
-            correct: 'Australia',
-            answer: null
-        },  
-        //7
-        {
-            question: 'What is the longest river in the world?',
-            answers: [
-                'Yangtze', 'Amazon', 'Mississippi', 'Nile',
-            ],
-            correct: 'Nile',
-            answer: null
-        },  
-        //8    
-        {
-            question: "What is Africa's tallest mountain?",
-            answers: [
-                'Kenya', 'Kilimanjaro', 'Mt. Stanley', 'Everest',
-            ],
-            correct: 'Kilimanjaro',
-            answer: null
-        },  
-        //9
-        {
-            question: 'What country contains the Suez Canal?',
-            answers: [
-                'Sudan', 'Israel', 'Suez', 'Egypt',
-            ],
-            correct: 'Egypt',
-            answer: null
-        },  
-        //10
-        {
-            question: 'In what continent is Morocco?',
-            answers: [
-                'Middle East', "South America", "Africa", 'Europe',
-            ],
-            correct: "Africa",
-            answer: null
-        },
-    ]
+        category: 'geography',
+        questions: [
+            //1
+            {
+                question: 'What is the largest U.S. state?',
+                answers: [
+                    'California', 'New York', 'Alaska', 'Texas'
+                ],
+                correct: 'Alaska',
+                answer: null
+            },
+            //2
+            {
+                question: 'What is the smallest U.S. state??',
+                answers: [
+                    'Rhode Island', 'Vermont', 'Hawaii', 'Delaware'
+                ],
+                correct: 'Rhode Island',
+                answer: null
+            },
+            //3
+            {
+                question: 'What is the largest lake in North America?',
+                answers: [
+                    'Lake Michigan', 'Lake Superior', 'Lake of the Ozarks', 'Lake Erie',
+                ],
+                correct: 'Lake Superior',
+                answer: null
+            },
+            //4
+            {
+                question: 'What is the largest country?',
+                answers: [
+                    'Italy', 'Brazil', 'Canada', 'Russia',
+                ],
+                correct: 'Russia',
+                answer: null
+            },
+            //5
+            {
+                question: 'What is the capital of Spain?',
+                answers: [
+                    'Barcelona', 'Sevilla', 'Madrid', 'Toledo',
+                ],
+                correct: 'Madrid',
+                answer: null
+            },
+            //6 
+            {
+                question: 'In which continent is Australia?',
+                answers: [
+                    'North America', 'Europe', 'Australia', 'Africa',
+                ],
+                correct: 'Australia',
+                answer: null
+            },
+            //7
+            {
+                question: 'What is the longest river in the world?',
+                answers: [
+                    'Yangtze', 'Amazon', 'Mississippi', 'Nile',
+                ],
+                correct: 'Nile',
+                answer: null
+            },
+            //8    
+            {
+                question: "What is Africa's tallest mountain?",
+                answers: [
+                    'Kenya', 'Kilimanjaro', 'Mt. Stanley', 'Everest',
+                ],
+                correct: 'Kilimanjaro',
+                answer: null
+            },
+            //9
+            {
+                question: 'What country contains the Suez Canal?',
+                answers: [
+                    'Sudan', 'Israel', 'Suez', 'Egypt',
+                ],
+                correct: 'Egypt',
+                answer: null
+            },
+            //10
+            {
+                question: 'In what continent is Morocco?',
+                answers: [
+                    'Middle East', "South America", "Africa", 'Europe',
+                ],
+                correct: "Africa",
+                answer: null
+            },
+        ]
     },
-        {
-            category: 'texas',
-            questions: [
-                //1
-        {
-            question: 'What year did Texas gain independence?',
-            answers: [
-                '1776','1836','1845', '1865'
-            ],
-            correct: '1836',
-            answer: null
-        },
-        //2
-        {
-            question: 'What is the capital of Texas?',
-            answers: [
-                'Austin', 'Houston', 'Dallas', 'San Antonio'
-            ],
-            correct: 'Austin',
-            answer: null
-        },
-        //3
-        {
-            question: 'Who is the Governor of Texas?',
-            answers: [
-                'Dan Patrick', 'Rick Perry', 'Ann Richards', 'Gregg Abbott',
-            ],
-            correct: 'Gregg Abbott',
-            answer: null
-        },  
-        //4
-        {
-            question: 'What year did Texas join the United States?',
-            answers: [
-                '1845', '1848', '1789', '1836',
-            ],
-            correct: '1845',
-            answer: null
-        },  
-        //5
-        {
-            question: 'What is the largest city in Texas?',
-            answers: [
-                'El Paso', 'Dallas', 'Austin', 'Houston',
-            ],
-            correct: 'Houston',
-            answer: null
-        }, 
-        //6 
-        {
-            question: 'How many people live in Texas?',
-            answers: [
-                '40 million', '29 million', '25 million', '35 million',
-            ],
-            correct: '29 million',
-            answer: null
-        },  
-        //7
-        {
-            question: 'How many presidents were born in Texas?',
-            answers: [
-                '1', '4', '2', '3',
-            ],
-            correct: '2',
-            answer: null
-        },  
-        //8    
-        {
-            question: "What is the longest river in Texas?",
-            answers: [
-                'Colorado River', 'Sabine River', 'Red River', 'Rio Grande',
-            ],
-            correct: 'Rio Grande',
-            answer: null
-        },  
-        //9
-        {
-            question: 'Who was the first President of Texas?',
-            answers: [
-                'Sam Houston', 'Mirabeau Lamar', 'Rick Perry', 'Lorenzo de Zavala',
-            ],
-            correct: 'Sam Houston',
-            answer: null
-        },  
-        //10
-        {
-            question: 'Where is the Alamo?',
-            answers: [
-                'Corpus Christi', "San Antonio", "Austin", 'Victoria',
-            ],
-            correct: "San Antonio",
-            answer: null
-        },
-        ]}
-    ]
+    {
+        category: 'texas',
+        questions: [
+            //1
+            {
+                question: 'What year did Texas gain independence?',
+                answers: [
+                    '1776', '1836', '1845', '1865'
+                ],
+                correct: '1836',
+                answer: null
+            },
+            //2
+            {
+                question: 'What is the capital of Texas?',
+                answers: [
+                    'Austin', 'Houston', 'Dallas', 'San Antonio'
+                ],
+                correct: 'Austin',
+                answer: null
+            },
+            //3
+            {
+                question: 'Who is the Governor of Texas?',
+                answers: [
+                    'Dan Patrick', 'Rick Perry', 'Ann Richards', 'Gregg Abbott',
+                ],
+                correct: 'Gregg Abbott',
+                answer: null
+            },
+            //4
+            {
+                question: 'What year did Texas join the United States?',
+                answers: [
+                    '1845', '1848', '1789', '1836',
+                ],
+                correct: '1845',
+                answer: null
+            },
+            //5
+            {
+                question: 'What is the largest city in Texas?',
+                answers: [
+                    'El Paso', 'Dallas', 'Austin', 'Houston',
+                ],
+                correct: 'Houston',
+                answer: null
+            },
+            //6 
+            {
+                question: 'How many people live in Texas?',
+                answers: [
+                    '40 million', '29 million', '25 million', '35 million',
+                ],
+                correct: '29 million',
+                answer: null
+            },
+            //7
+            {
+                question: 'How many presidents were born in Texas?',
+                answers: [
+                    '1', '4', '2', '3',
+                ],
+                correct: '2',
+                answer: null
+            },
+            //8    
+            {
+                question: "What is the longest river in Texas?",
+                answers: [
+                    'Colorado River', 'Sabine River', 'Red River', 'Rio Grande',
+                ],
+                correct: 'Rio Grande',
+                answer: null
+            },
+            //9
+            {
+                question: 'Who was the first President of Texas?',
+                answers: [
+                    'Sam Houston', 'Mirabeau Lamar', 'Rick Perry', 'Lorenzo de Zavala',
+                ],
+                correct: 'Sam Houston',
+                answer: null
+            },
+            //10
+            {
+                question: 'Where is the Alamo?',
+                answers: [
+                    'Corpus Christi', "San Antonio", "Austin", 'Victoria',
+                ],
+                correct: "San Antonio",
+                answer: null
+            },
+        ]
+    }
+]
 
 // cached elements
 const trivia = document.querySelectorAll('.play')
@@ -402,15 +403,15 @@ const txQuestionText = document.querySelectorAll('.txQuestion');
 let triviaList, answerButtons, questionNumber, answerList, numberCorrect, numberWrong, answerCheckList, presidentAnswers, pizzaAnswers, texasAnswers, geographyAnswers, currentTrivia, currentQuestion, currentAnswer;
 
 //event listeners
-trivia.forEach(element =>{
-   element.addEventListener('click', triviaSelect); 
+trivia.forEach(element => {
+    element.addEventListener('click', triviaSelect);
 });
 triviaMenu.addEventListener('click', returnToMenu);
 
 // functions
 function init() {
     console.log('running');
-    triviaList = ['U.S. Presidents Trivia','Texas Trivia','Pizza Trivia','Geography Trivia'];
+    triviaList = ['U.S. Presidents Trivia', 'Texas Trivia', 'Pizza Trivia', 'Geography Trivia'];
     answerList = [];
     answerCheckList = [];
     presidentAnswers = [];
@@ -425,9 +426,9 @@ function init() {
     $('.pizza').hide();
     $('.geography').hide();
     $('.texas').hide();
-    }
+}
 
-function returnToMenu () {
+function returnToMenu() {
     $('.boxes').hide();
     $('.answers').hide();
     $('.instructions').show();
@@ -435,23 +436,23 @@ function returnToMenu () {
     welcome.textContent = 'Welcome to Trivia!';
     $('.questions').addClass('play').removeClass('questions')
     $('.play').show().css("background-color", "peru");
-    trivia.forEach(function(element,idx){ //change names back
+    trivia.forEach(function (element, idx) { //change names back
         element.textContent = triviaList[idx];
         idx++;
     })
     console.log('returning to menu');
     answerList = [];
     answerCheckList = [];
-    if (presidentAnswers.length>0) {
+    if (presidentAnswers.length > 0) {
         $("#trivia1").css("background-color", 'green');
     }
-    if (texasAnswers.length>0) {
+    if (texasAnswers.length > 0) {
         $("#trivia2").css("background-color", 'green');
     }
-    if (pizzaAnswers.length>0) {
+    if (pizzaAnswers.length > 0) {
         $("#trivia3").css("background-color", 'green');
     }
-    if (geographyAnswers.length>0) {
+    if (geographyAnswers.length > 0) {
         $("#trivia4").css("background-color", 'green');
     }
     body.style.backgroundColor = 'slategray';
@@ -498,11 +499,11 @@ function play() {
     questionNumber = 0;
     console.log('Starting question: ' + questionNumber)
     currentQuestion = currentTrivia.questions[questionNumber].question;
-    questionText[0].textContent = currentQuestion; 
+    questionText[0].textContent = currentQuestion;
     console.log('Playing ' + currentTrivia.category);
-    answerButtons.forEach(function(element,idx){
+    answerButtons.forEach(function (element, idx) {
         element.textContent = currentTrivia.questions[questionNumber].answers[idx];
-        console.log('answer choice changing to: '+ element.textContent);
+        console.log('answer choice changing to: ' + element.textContent);
     })
 }
 
@@ -511,20 +512,20 @@ function questionSelect() {
         render();
         return;
     }
-    answerButtons.forEach(function(element,idx){
+    answerButtons.forEach(function (element, idx) {
         element.textContent = currentTrivia.questions[questionNumber].answers[idx];
     })
-    if (event.target.localName !== 'button' || event.target.className==='play'){
+    if (event.target.localName !== 'button' || event.target.className === 'play') {
         return;
-    } 
+    }
     currentQuestion = currentTrivia.questions[questionNumber].question;
-    questionText[0].textContent = currentQuestion; 
-    currentTrivia.questions[questionNumber].answer = event.target.textContent; 
+    questionText[0].textContent = currentQuestion;
+    currentTrivia.questions[questionNumber].answer = event.target.textContent;
     console.log(currentQuestion + ' setting answer to ' + currentTrivia.questions[questionNumber].answer)
     questionNumber++;
     console.log('current question is: ' + currentQuestion)
     console.log(event.target.textContent);
-    console.log('question number: '+questionNumber)
+    console.log('question number: ' + questionNumber)
 }
 
 function render() {
@@ -535,14 +536,14 @@ function render() {
     numberCorrect = 0;
     correctIndex = [];
     console.log("RENDER FUNCTION");
-    console.log('current trivia is: '+currentTrivia.category)
-    currentTrivia.questions.forEach(function(element,idx, question){ 
+    console.log('current trivia is: ' + currentTrivia.category)
+    currentTrivia.questions.forEach(function (element, idx, question) {
         if (question[idx].answer === question[idx].correct) {
             correctIndex.push(idx);
         }
         idx++;
     });
-    console.log('correct indices are: '+correctIndex)
+    console.log('correct indices are: ' + correctIndex)
     // drawAnswers();
     drawBoxes();
     $('.trivia-menu').show();
@@ -559,19 +560,19 @@ function render() {
 
 function drawBoxes() {
     $('.boxes').toggle();
-    console.log('correct indices for drawBoxes = ' +correctIndex);
-    box.forEach(function(element, idx, box) {
+    console.log('correct indices for drawBoxes = ' + correctIndex);
+    box.forEach(function (element, idx, box) {
         // console.log('box is: '+box[idx].id);
         if (answerCheckList[idx] === '1') {
             console.log("Box #" + box[idx].id + ' is correct --- changing to green')
             box[idx].style.backgroundColor = 'chartreuse';
         }
         if (answerCheckList[idx] === '0') {
-            box[idx].style.backgroundColor= 'darkred';
+            box[idx].style.backgroundColor = 'darkred';
         }
         box[idx].innerHTML = '';
         idx++
-    });  
+    });
 }
 
 //call functions
