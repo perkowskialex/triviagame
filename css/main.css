@@ -1,10 +1,14 @@
+* {
+    font-family: 'Arimo', sans-serif;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 40px;
-    background-color: slategray;
-    color: whitesmoke;
+    background-color: steelblue;
+    color: mistyrose;
     flex-direction:column;
     height: 100vh;
     width: 100vw;
@@ -13,6 +17,9 @@ body {
 .welcome {
     display: flex;
     padding: 20px;
+    font-size: 64px;
+    letter-spacing: 3px;
+    font-weight: bold;
     justify-content: center;
     text-align: center;
     flex-direction: column;
@@ -29,22 +36,72 @@ body {
     order: 0;
 }
 
+#trivia1 {
+    background-color: midnightblue;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
+
+#trivia1:hover {
+    background-color: whitesmoke;
+    color: midnightblue;
+    border: 2px solid midnightblue;
+}
+
+#trivia2 {
+    background-color: firebrick;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
+
+#trivia2:hover {
+    background-color: whitesmoke;
+    color: firebrick;
+    border: 2px solid firebrick;
+}
+
+#trivia3 {
+    background-color: slategray;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
+
+#trivia3:hover {
+    background-color: whitesmoke;
+    color: slategray;
+    border: 2px solid slategray;
+}
+
+#trivia4 {
+    background-color: darkgreen;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
+
+#trivia4:hover{
+    background-color: whitesmoke;
+    color: darkgreen;
+    border: 2px solid darkgreen;
+}
+
 .instructions {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 15vh 10px;
+    padding: 10vh 10px;
     text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .instructionsText {
-    padding: 10px 0px 0px 0px;
     display: flex;
     justify-content: center;
     font-size: 20px;
     text-align: center;
-    width: 50vw;
+    width: 35vw;
+    font-weight: normal;
 }
 
 .trivia {
@@ -178,6 +235,13 @@ body {
     width: 15vw;
     height: 10vh;
     justify-content: center;
+    border-radius: 5px;
+}
+
+.trivia-menu:hover {
+    color: firebrick;
+    background-color: whitesmoke;
+    border: 2px solid firebrick;
 }
 
 .play:hover {

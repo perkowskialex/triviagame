@@ -382,6 +382,104 @@ const allTrivia = [
     }
 ]
 
+const secretTrivia = [
+    {
+        category: 'secret',
+        questions: [
+            //1
+            {
+                question: '',
+                answers: [
+                    '', '', '', ''
+                ],
+                correct: '',
+                answer: null
+            },
+            //2
+            {
+                question: '',
+                answers: [
+                    '', '', '', ''
+                ],
+                correct: '',
+                answer: null
+            },
+            //3
+            {
+                question: '',
+                answers: [
+                    '', '', '', '',
+                ],
+                correct: '',
+                answer: null
+            },
+            //4
+            {
+                question: '',
+                answers: [
+                    '', '', '', '',
+                ],
+                correct: '',
+                answer: null
+            },
+            //5
+            {
+                question: '',
+                answers: [
+                    '', '', '', '',
+                ],
+                correct: '',
+                answer: null
+            },
+            //6 
+            {
+                question: '',
+                answers: [
+                    '', '', '', '',
+                ],
+                correct: '',
+                answer: null
+            },
+            //7
+            {
+                question: '',
+                answers: [
+                    '', '', '', '',
+                ],
+                correct: '',
+                answer: null
+            },
+            //8    
+            {
+                question: '',
+                answers: [
+                    '', '', '', '',
+                ],
+                correct: '',
+                answer: null
+            },
+            //9
+            {
+                question: '',
+                answers: [
+                    '', '', '', '',
+                ],
+                correct: '',
+                answer: null
+            },
+            //10
+            {
+                question: '',
+                answers: [
+                    '', '', '', '',
+                ],
+                correct: '',
+                answer: null
+            }
+        ]
+    }
+]
+
 // cached elements
 const trivia = document.querySelectorAll('.play')
 const body = document.querySelector('body');
@@ -493,23 +591,17 @@ function triviaSelect() {
         answerButtons = txButtons;
         questionText = txQuestionText;
     }
+    play();
     answerButtons.forEach(element => {
         addEventListener('click', questionSelect);
     });
-    play();
 }
 
 function play() {
+    console.log('Running play function for: ' + currentTrivia.category);
     answerList = [];
     questionNumber = 0;
-    console.log('Starting question: ' + questionNumber)
-    currentQuestion = currentTrivia.questions[questionNumber].question;
-    questionText[0].textContent = currentQuestion;
-    console.log('Playing ' + currentTrivia.category);
-    answerButtons.forEach(function (element, idx) {
-        element.textContent = currentTrivia.questions[questionNumber].answers[idx];
-        console.log('answer choice changing to: ' + element.textContent);
-    })
+    questionSelect();
 }
 
 function questionSelect() {
