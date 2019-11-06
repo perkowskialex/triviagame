@@ -534,33 +534,38 @@ function render() {
     $('.geography').hide();
     $('.texas').hide();
     numberCorrect = 0;
-    correctIndex = [];
+    answerCheckList = [];
     console.log("RENDER FUNCTION");
     console.log('current trivia is: ' + currentTrivia.category)
     currentTrivia.questions.forEach(function (element, idx, question) {
         if (question[idx].answer === question[idx].correct) {
-            correctIndex.push(idx);
+            answerCheckList.push('1');
+        }
+        if (question[idx].answer !== question[idx].correct) {
+            answerCheckList.push('0');
         }
         idx++;
     });
-    console.log('correct indices are: ' + correctIndex)
-    // drawAnswers();
+    console.log('correct indices are: ' + answerCheckList)
+    drawAnswers();
     drawBoxes();
     $('.trivia-menu').show();
 }
 
-// function drawAnswers() {
-//     // this function will show all answers and their selection
-//     let answerElement = document.createElement('answers');
-//     answerElement.className = "answers"
-//     body.appendChild(answerElement)
-//     answerElement.append('Your Answers: ' + answerList);
-//     answerElement.style.fontSize = '20px';
-// }  
+function drawAnswers() {
+    // this function will show all answers and their selection
+    let answerElement = document.createElement('answers');
+    currentTrivia.questions.forEach(function (element, idx, question) {
+        answerList.push(question[idx].answer);
+    });
+    answerElement.className = "answers"
+    body.appendChild(answerElement)    
+    answerElement.style.fontSize = '20px';
+    answerElement.append('Your Answers: ' + answerList);
+}  
 
 function drawBoxes() {
     $('.boxes').toggle();
-    console.log('correct indices for drawBoxes = ' + correctIndex);
     box.forEach(function (element, idx, box) {
         // console.log('box is: '+box[idx].id);
         if (answerCheckList[idx] === '1') {
