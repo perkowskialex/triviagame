@@ -429,13 +429,15 @@ function init() {
 }
 
 function returnToMenu() {
+    $('.main-splash').show();
     $('.boxes').hide();
     $('.answers').hide();
-    $('.instructions').show();
     $('.trivia-menu').hide();
+    $('.presidents').hide();
+    $('.pizza').hide();
+    $('.geography').hide();
+    $('.texas').hide();
     welcome.textContent = 'Welcome to Trivia!';
-    $('.questions').addClass('play').removeClass('questions')
-    $('.play').show().css("background-color", "peru");
     trivia.forEach(function (element, idx) { //change names back
         element.textContent = triviaList[idx];
         idx++;
