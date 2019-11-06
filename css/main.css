@@ -2,7 +2,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: gainsboro;
     font-size: 40px;
     background-color: slategray;
     color: whitesmoke;
@@ -17,6 +16,17 @@ body {
     justify-content: center;
     text-align: center;
     flex-direction: column;
+}
+
+.presQuestion, .pizzaQuestion, .txQuestion, .geoQuestion {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    font-size: 40px;
+    color: whitesmoke;
+    order: 0;
 }
 
 .instructions {
@@ -58,7 +68,44 @@ body {
     border-radius: 5px;
 }
 
-.questions {
+.presidents {
+    width: 100vw;
+    height: 100vh;
+    background-color: firebrick;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.texas {
+    width: 100vw;
+    height: 100vh;
+    background-color: midnightblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pizza {
+    width: 100vw;
+    height: 100vh;
+    background-color: peru;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.geography {
+    width: 100vw;
+    height: 100vh;
+    background-color: darkgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.presAnswer, .pizzaAnswer, .geoAnswer, .txAnswer {
     display: flex;
     background-color: peru;
     padding: 10px;
@@ -66,18 +113,13 @@ body {
     font-size: 20px;
     color: whitesmoke;
     border: 2px solid whitesmoke;
-    width: 15vw;
-    height: 15vh;
+    width: 20vw;
+    height: 10vh;
     justify-content: center;
     vertical-align: center;
     border-radius: 5px;
-}
-
-.questions:hover {
-    background-color: whitesmoke;
-    color: black;
-    border: 1px solid black;
-}
+    flex-direction: row;
+} 
 
 .trivia-menu {
     display: flex;
