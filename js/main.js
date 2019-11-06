@@ -499,7 +499,7 @@ function play() {
     console.log('Starting question: ' + questionNumber)
     currentQuestion = currentTrivia.questions[questionNumber].question;
     currentAnswer = currentTrivia.questions[questionNumber].answer;
-    questionText.textContent = currentQuestion; 
+    questionText[0].textContent = currentQuestion; 
     console.log('Playing ' + currentTrivia.category);
     answerButtons.forEach(function(element,idx){
         element.textContent = currentTrivia.questions[questionNumber].answers[idx];
@@ -519,7 +519,7 @@ function questionSelect() {
         return;
     } 
     currentQuestion = currentTrivia.questions[questionNumber].question;
-    questionText.textContent = currentQuestion; 
+    questionText[0].textContent = currentQuestion; 
     currentAnswer = event.target.textContent; 
     console.log(currentQuestion + ' setting answer to ' + currentAnswer)
     questionNumber++;
@@ -536,20 +536,27 @@ function render() {
     numberCorrect = 0;
     correctIndex = [];
     console.log("RENDER FUNCTION");
-    console.log('current trivia is: '+currentTrivia)
-    drawAnswers();
+    console.log('current trivia is: '+currentTrivia.category)
+    currentTrivia.questions.forEach(function(element,idx){
+        if (element[idx].answer === element[idx].correct) {
+            correctIndex.push(idx);
+            idx++;
+        }
+    });
+    console.log('correct indices are: '+correctIndex)
+    // drawAnswers();
     drawBoxes();
     $('.trivia-menu').toggle();
 }
 
-function drawAnswers() {
-    // this function will show all answers and their selection
-    let answerElement = document.createElement('answers');
-    answerElement.className = "answers"
-    body.appendChild(answerElement)
-    answerElement.append('Your Answers: ' + answerList);
-    answerElement.style.fontSize = '20px';
-}  
+// function drawAnswers() {
+//     // this function will show all answers and their selection
+//     let answerElement = document.createElement('answers');
+//     answerElement.className = "answers"
+//     body.appendChild(answerElement)
+//     answerElement.append('Your Answers: ' + answerList);
+//     answerElement.style.fontSize = '20px';
+// }  
 
 function drawBoxes() {
     $('.boxes').toggle();
