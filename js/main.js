@@ -560,7 +560,7 @@ function render() {
 
 function drawAnswers() {
     // this function will show all answers and their selection
-    let answerElement = document.createElement('answers');
+    answerElement = document.createElement('answers');
     currentTrivia.questions.forEach(function (element, idx, question) {
         answerList.push(question[idx].answer);
     });

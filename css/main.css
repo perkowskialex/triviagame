@@ -124,10 +124,22 @@ body {
     border: 2px solid whitesmoke;
 }
 
+.txAnswer:hover {
+    background-color: whitesmoke;
+    color: firebrick;
+    border: 2px solid firebrick;
+}
+
 .geoAnswer {
     background-color: darkgreen;
     color: whitesmoke;
     border: 2px solid whitesmoke;
+}
+
+.geoAnswer:hover {
+    background-color: whitesmoke;
+    color: darkgreen;
+    border: 2px solid darkgreen;
 }
 
 .presAnswer {
@@ -136,10 +148,22 @@ body {
     border: 2px solid whitesmoke;
 }
 
+.presAnswer:hover {
+    background-color: whitesmoke;
+    color: midnightblue;
+    border: 2px solid midnightblue;
+}
+
 .pizzaAnswer {
     background-color: slategray;
     color: whitesmoke;
     border: 2px solid whitesmoke;
+}
+
+.pizzaAnswer:hover {
+    background-color: whitesmoke;
+    color: slategray;
+    border: 2px solid slategray;
 }
 
 .trivia-menu {
