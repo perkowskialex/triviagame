@@ -437,7 +437,6 @@ function returnToMenu() {
     $('.pizza').hide();
     $('.geography').hide();
     $('.texas').hide();
-    welcome.textContent = 'Welcome to Trivia!';
     trivia.forEach(function (element, idx) { //change names back
         element.textContent = triviaList[idx];
         idx++;
@@ -445,16 +444,16 @@ function returnToMenu() {
     console.log('returning to menu');
     answerList = [];
     answerCheckList = [];
-    if (presidentAnswers.length > 0) {
+    if (presidentAnswers === true) {
         $("#trivia1").css("background-color", 'green');
     }
-    if (texasAnswers.length > 0) {
+    if (texasAnswers=== true) {
         $("#trivia2").css("background-color", 'green');
     }
-    if (pizzaAnswers.length > 0) {
+    if (pizzaAnswers=== true) {
         $("#trivia3").css("background-color", 'green');
     }
-    if (geographyAnswers.length > 0) {
+    if (geographyAnswers=== true) {
         $("#trivia4").css("background-color", 'green');
     }
     body.style.backgroundColor = 'slategray';
@@ -465,6 +464,7 @@ function triviaSelect() {
     if (event.target.innerHTML === 'U.S. Presidents Trivia') {
         $('.main-splash').hide();
         $('.presidents').show();
+        presidentAnswers = true; 
         currentTrivia = allTrivia[0];
         answerButtons = presButtons
         questionText = presQuestionText;
@@ -472,6 +472,7 @@ function triviaSelect() {
     if (event.target.innerHTML === 'Pizza Trivia') {
         $('.main-splash').hide();
         $('.pizza').show();
+        pizzaAnswers = true;
         currentTrivia = allTrivia[1];
         answerButtons = pizzaButtons
         questionText = pizzaQuestionText;
@@ -479,6 +480,7 @@ function triviaSelect() {
     if (event.target.innerHTML === 'Geography Trivia') {
         $('.main-splash').hide();
         $('.geography').show();
+        geographyAnswers = true; 
         currentTrivia = allTrivia[2];
         answerButtons = geoButtons
         questionText = geoQuestionText;
@@ -486,6 +488,7 @@ function triviaSelect() {
     if (event.target.innerHTML === 'Texas Trivia') {
         $('.main-splash').hide();
         $('.texas').show();
+        texasAnswers = true;
         currentTrivia = allTrivia[3];
         answerButtons = txButtons;
         questionText = txQuestionText;
@@ -517,7 +520,7 @@ function questionSelect() {
     answerButtons.forEach(function (element, idx) {
         element.textContent = currentTrivia.questions[questionNumber].answers[idx];
     })
-    if (event.target.localName !== 'button' || event.target.className === 'play') {
+    if (event.target.localName !== 'button' || event.target.className === 'play' ||event.target.className === 'trivia-menu') {
         return;
     }
     currentQuestion = currentTrivia.questions[questionNumber].question;
@@ -526,7 +529,7 @@ function questionSelect() {
     console.log(currentQuestion + ' setting answer to ' + currentTrivia.questions[questionNumber].answer)
     questionNumber++;
     console.log('current question is: ' + currentQuestion)
-    console.log(event.target.textContent);
+    console.log('answer chosen: '+event.target.textContent);
     console.log('question number: ' + questionNumber)
 }
 
@@ -535,6 +538,7 @@ function render() {
     $('.pizza').hide();
     $('.geography').hide();
     $('.texas').hide();
+    questionNumber = 0;
     numberCorrect = 0;
     answerCheckList = [];
     console.log("RENDER FUNCTION");
@@ -567,7 +571,7 @@ function drawAnswers() {
 }  
 
 function drawBoxes() {
-    $('.boxes').toggle();
+    $('.boxes').show();
     box.forEach(function (element, idx, box) {
         // console.log('box is: '+box[idx].id);
         if (answerCheckList[idx] === '1') {
