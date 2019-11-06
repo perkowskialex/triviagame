@@ -494,27 +494,49 @@ function triviaSelect() {
 }
 
 function play() {
+    answerList = [];
+    questionNumber = 0;
+    console.log('Starting question: ' + questionNumber)
+    currentQuestion = currentTrivia.questions[questionNumber].question;
+    currentAnswer = currentTrivia.questions[questionNumber].answer;
+    questionText.textContent = currentQuestion; 
     console.log('Playing ' + currentTrivia.category);
-    currentQuestion = currentTrivia.questions[0].question;
-    console.log('current question is: ' + currentQuestion)
-    questionText[0].textContent = currentQuestion; 
     answerButtons.forEach(function(element,idx){
-        element.textContent = currentTrivia.questions[0].answers[idx];
+        element.textContent = currentTrivia.questions[questionNumber].answers[idx];
         console.log('answer choice changing to: '+ element.textContent);
     })
 }
 
 function questionSelect() {
-    console.log(event.target.textContent)
+    if (questionNumber === 10) {
+        render();
+        return;
+    }
+    answerButtons.forEach(function(element,idx){
+        element.textContent = currentTrivia.questions[questionNumber].answers[idx];
+    })
+    if (event.target.localName !== 'button' || event.target.className==='play'){
+        return;
+    } 
+    currentQuestion = currentTrivia.questions[questionNumber].question;
+    questionText.textContent = currentQuestion; 
+    currentAnswer = event.target.textContent; 
+    console.log(currentQuestion + ' setting answer to ' + currentAnswer)
+    questionNumber++;
+    console.log('current question is: ' + currentQuestion)
+    console.log(event.target.textContent);
+    console.log('question number: '+questionNumber)
 }
 
 function render() {
+    $('.presidents').hide();
+    $('.pizza').hide();
+    $('.geography').hide();
+    $('.texas').hide();
     numberCorrect = 0;
     correctIndex = [];
     console.log("RENDER FUNCTION");
-    console.log(answerList);  // ==> working now
     console.log('current trivia is: '+currentTrivia)
-    welcome.textContent = 'You answered ' + numberCorrect + " out of " + answerList.length + " correctly.";
     drawAnswers();
     drawBoxes();
     $('.trivia-menu').toggle();
