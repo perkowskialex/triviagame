@@ -1,6 +1,7 @@
 * {
     font-family: 'Arimo', sans-serif;
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
@@ -19,26 +20,31 @@ body {
     background-color: steelblue;
 }
 
-.welcome {
+.welcome, .thanks {
     display: flex;
-    padding: 0 0 5vh 0;
+    padding: 0 5% 5vh 5%;
     font-size: 64px;
     letter-spacing: 3px;
     font-weight: bold;
     justify-content: center;
     text-align: center;
     flex-direction: column;
+    width: 100%;
 }
 
 .presQuestion, .pizzaQuestion, .txQuestion, .geoQuestion, .secretQuestion {
     display: flex;
-    padding: 20px;
+    padding: 5%;
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    font-size: 40px;
+    font-size: 100%;
     color: whitesmoke;
     order: 0;
+}
+
+.secretQuestion {
+    color: gold;
 }
 
 #triviaSecret {
@@ -95,6 +101,12 @@ body {
     border: 2px solid darkgreen;
 }
 
+#triviaSecret:hover {
+    background-color: gold;
+    color: purple;
+    border: 2px solid purple;
+}
+
 .instructions {
     display: flex;
     flex-direction: row;
@@ -118,10 +130,15 @@ body {
     width: 35vw;
     font-weight: normal;
     background-color: khaki;
-    color: dimgrey;
+    color: indigo;
     padding: 10px;
     margin: 10px;
     border-radius: 20px;
+    border: 2px solid indigo;
+}
+
+.instructionsText:hover {
+    background-color: palegoldenrod;
 }
 
 .trivia {
@@ -138,13 +155,13 @@ body {
     width: 15vw;
     height: 15vh;
     justify-content: center;
-    vertical-align: center;
     border-radius: 5px;
+    align-items: space-evenly;
 }
 
 .presidents {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: firebrick;
     display: flex;
     flex-direction: column;
@@ -194,18 +211,24 @@ body {
     padding: 10px;
     margin: 10px;
     font-size: 20px;
-    width: 20vw;
+    width: 25%;
     height: 10vh;
     justify-content: center;
-    vertical-align: center;
     border-radius: 5px;
     flex-direction: row;
+    align-items: center;
 } 
 
 .secretAnswer {
     background-color: gold;
     color: purple;
     border: 2px solid purple;
+}
+
+.secretAnswer:hover {
+        background-color: purple;
+        color: gold;
+        border: 2px solid gold;    
 }
 
 .txAnswer {
@@ -268,6 +291,7 @@ body {
     width: 15vw;
     height: 10vh;
     justify-content: center;
+    align-items: flex-end;
     border-radius: 5px;
 }
 
@@ -282,13 +306,30 @@ body {
     flex-direction: row;
     padding: 10px;
     border-radius: 5px;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
 }
 
 .box {
-    width: 5vh;
-    height: 5vh;
+    width: 8vh;
+    height: 8vh;
     border: 2px solid whitesmoke;
     display: flex;
     padding: 5px;
     margin: 5px;
+    align-items: center;
+    justify-content: center;
+    font-size: 50%;
+}
+
+.answers {
+    display: flex;
+    color: mistyrose;
+    width: 70vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5% 0;
 }
