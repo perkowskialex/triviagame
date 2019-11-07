@@ -204,7 +204,7 @@ const allTrivia = [
             },
             //2
             {
-                question: 'What is the smallest U.S. state??',
+                question: 'What is the smallest U.S. state?',
                 answers: [
                     'Rhode Island', 'Vermont', 'Hawaii', 'Delaware'
                 ],
@@ -497,6 +497,8 @@ const pizzaQuestionText = document.querySelectorAll('.pizzaQuestion');
 const geoQuestionText = document.querySelectorAll('.geoQuestion');
 const txQuestionText = document.querySelectorAll('.txQuestion');
 
+const instructions = document.querySelector('.instructions');
+
 // app state variables
 let triviaList, answerButtons, questionNumber, answerList, numberCorrect, numberWrong, answerCheckList, presidentAnswers, pizzaAnswers, texasAnswers, geographyAnswers, currentTrivia, currentQuestion, currentAnswer;
 
@@ -505,6 +507,8 @@ trivia.forEach(element => {
     element.addEventListener('click', triviaSelect);
 });
 triviaMenu.addEventListener('click', returnToMenu);
+instructions.addEventListener('click', showInstructions)
+
 
 // functions
 function init() {
@@ -517,6 +521,7 @@ function init() {
     texasAnswers = [];
     geographyAnswers = [];
     currentTrivia = '';
+    $('.instructionsText').hide();
     $('.boxes').hide();
     $('.answers').hide();
     $('.trivia-menu').hide();
@@ -554,7 +559,6 @@ function returnToMenu() {
     if (geographyAnswers=== true) {
         $("#trivia4").css("background-color", 'green');
     }
-    body.style.backgroundColor = 'slategray';
 }
 
 function triviaSelect() {
@@ -592,37 +596,68 @@ function triviaSelect() {
         questionText = txQuestionText;
     }
     play();
-    answerButtons.forEach(element => {
-        addEventListener('click', questionSelect);
-    });
+}
+
+function showInstructions() {
+    $('.instructions').show();
+    $('.instructionsText').toggle();
 }
 
 function play() {
     console.log('Running play function for: ' + currentTrivia.category);
     answerList = [];
     questionNumber = 0;
-    questionSelect();
+    nextQuestion();
+    // currentQuestion = currentTrivia.questions[questionNumber].question;
+    // questionText[0].textContent = currentQuestion;
+    answerButtons.forEach(element => {
+        // addEventListener('click', nextQuestion);
+        addEventListener('click',answerRender);
+        // addEventListener('click',questionIterate);
+    });
+    answerButtons.forEach(function (element, idx) {
+        element.textContent = currentTrivia.questions[questionNumber].answers[idx];
+    })
+    }
+
+// think about breaking this logic into two function
+function questionIterate() {
+    questionNumber++
 }
 
-function questionSelect() {
+function nextQuestion() { // here
     if (questionNumber === 10) {
         render();
         return;
     }
-    answerButtons.forEach(function (element, idx) {
-        element.textContent = currentTrivia.questions[questionNumber].answers[idx];
-    })
     if (event.target.localName !== 'button' || event.target.className === 'play' ||event.target.className === 'trivia-menu') {
         return;
     }
     currentQuestion = currentTrivia.questions[questionNumber].question;
     questionText[0].textContent = currentQuestion;
-    currentTrivia.questions[questionNumber].answer = event.target.textContent;
-    console.log(currentQuestion + ' setting answer to ' + currentTrivia.questions[questionNumber].answer)
-    questionNumber++;
-    console.log('current question is: ' + currentQuestion)
-    console.log('answer chosen: '+event.target.textContent);
+    console.log('running nextQuestion function')
     console.log('question number: ' + questionNumber)
+    // questionNumber++; // this only changes the variable in js memeory but does trigger the dom to do anything 
+    // so you want to put that function here in this event listener it sheould rerender every thing in the dom
+    console.log('current question is: ' + currentQuestion)
+    questionIterate();
+}
+
+function answerRender() {
+    console.log('running Answer render function')
+    if (event.target.localName !== 'button' || event.target.className === 'play' ||event.target.className === 'trivia-menu') {
+        return;
+    }
+    if (questionNumber === 10) {
+        render();
+        return;
+    }
+    currentTrivia.questions[questionNumber].answer = event.target.textContent;
+    answerButtons.forEach(function (element, idx) {
+        element.textContent = currentTrivia.questions[questionNumber].answers[idx];
+    })
+    console.log(currentQuestion + ' setting answer to ' + currentTrivia.questions[questionNumber].answer);
+    nextQuestion();
 }
 
 function render() {

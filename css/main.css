@@ -1,5 +1,6 @@
 * {
     font-family: 'Arimo', sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -14,9 +15,13 @@ body {
     width: 100vw;
 }
 
+.main-splash {
+    background-color: steelblue;
+}
+
 .welcome {
     display: flex;
-    padding: 20px;
+    padding: 0 0 5vh 0;
     font-size: 64px;
     letter-spacing: 3px;
     font-weight: bold;
@@ -86,13 +91,17 @@ body {
 
 .instructions {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
     padding: 10vh 10px;
     text-align: center;
     font-weight: bold;
     letter-spacing: 1px;
+}
+
+.instructions:hover{
+    color: dimgrey;
 }
 
 .instructionsText {
@@ -102,6 +111,11 @@ body {
     text-align: center;
     width: 35vw;
     font-weight: normal;
+    background-color: khaki;
+    color: dimgrey;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
 }
 
 .trivia {
@@ -112,12 +126,9 @@ body {
 
 .play {
     display: flex;
-    background-color: peru;
     padding: 10px;
     margin: 10px;
     font-size: 20px;
-    color: whitesmoke;
-    border: 2px solid whitesmoke;
     width: 15vw;
     height: 15vh;
     justify-content: center;
@@ -142,6 +153,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-image: url('https://i.imgur.com/Z5fttiv.png'); 
 }
 .pizza {
     width: 100vw;
@@ -184,7 +196,7 @@ body {
 .txAnswer:hover {
     background-color: whitesmoke;
     color: firebrick;
-    border: 2px solid firebrick;
+    border: 2px solid firebrick; 
 }
 
 .geoAnswer {
