@@ -7,6 +7,11 @@ User stories:
 * As a user, I want to be able to: see how well or poorly I performed.
 * As a user, I want to be able to: play multiple games of trivia without restarting from the splash.
 
+Technologies Used:
+* Javascript
+* CSS
+* HTML
+
 # Wireframe Design: 
 
 ## Splash Screen
