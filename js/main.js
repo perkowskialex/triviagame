@@ -388,92 +388,92 @@ const secretTrivia = [
         questions: [
             //1
             {
-                question: '',
+                question: 'A?',
                 answers: [
-                    '', '', '', ''
+                    'A', 'B', 'C', 'D'
                 ],
-                correct: '',
+                correct: 'A',
                 answer: null
             },
             //2
             {
-                question: '',
+                question: 'Mos Def?',
                 answers: [
-                    '', '', '', ''
+                    'Mathematics', 'Dante Terrell Smith', 'Its the mighty Mos Def', 'Yasiin Bey'
                 ],
-                correct: '',
+                correct: 'Yasiin Bey',
                 answer: null
             },
             //3
             {
-                question: '',
+                question: 'Secret Trivia?',
                 answers: [
-                    '', '', '', '',
+                    'These are really bad questions', "I'm testing the functionality", 'C', 'Why would you make this',
                 ],
-                correct: '',
+                correct: 'C',
                 answer: null
             },
             //4
             {
-                question: '',
+                question: 'What was your favorite trivia?',
                 answers: [
-                    '', '', '', '',
+                    'Presidents', 'Geography', 'Texas', 'Pizza',
                 ],
-                correct: '',
+                correct: 'Pizza',
                 answer: null
             },
             //5
             {
-                question: '',
+                question: 'Where are you right now?',
                 answers: [
-                    '', '', '', '',
+                    'At home', 'In a pizzeria', 'Texas', 'Austin',
                 ],
-                correct: '',
+                correct: 'Austin',
                 answer: null
             },
             //6 
             {
-                question: '',
+                question: 'So this quiz is complete nonsense?',
                 answers: [
-                    '', '', '', '',
+                    'Yes', 'Absolutely', 'Most Absolutely', 'Definitely',
                 ],
-                correct: '',
+                correct: 'Yes',
                 answer: null
             },
             //7
             {
-                question: '',
+                question: 'Best Big Cat?',
                 answers: [
-                    '', '', '', '',
+                    'Jaguar', 'Lion', 'Tiger', 'Leopard',
                 ],
-                correct: '',
+                correct: 'Jaguar',
                 answer: null
             },
             //8    
             {
-                question: '',
+                question: 'You cannot make every question subjective, that is not how trivia works',
                 answers: [
-                    '', '', '', '',
+                    'Sorry', 'But', 'I', 'Could not care less',
                 ],
-                correct: '',
+                correct: 'I',
                 answer: null
             },
             //9
             {
-                question: '',
+                question: 'I was going to make this Sean Kingston themed but that would be tough',
                 answers: [
-                    '', '', '', '',
+                    'OK', 'OKAY', 'O K', 'Alright',
                 ],
-                correct: '',
+                correct: 'O K',
                 answer: null
             },
             //10
             {
-                question: '',
+                question: 'Turns out there is not a lot of Sean Kingston trivia',
                 answers: [
-                    '', '', '', '',
+                    'That makes sense', 'SEAN KINGSTON!', 'Sean Kingston was really young when he became famous, that would be a good question', 'Line Break',
                 ],
-                correct: '',
+                correct: 'SEAN KINGSTON!',
                 answer: null
             }
         ]
@@ -491,11 +491,13 @@ const presButtons = document.querySelectorAll('.presAnswer');
 const pizzaButtons = document.querySelectorAll('.pizzaAnswer');
 const txButtons = document.querySelectorAll('.txAnswer');
 const geoButtons = document.querySelectorAll('.geoAnswer');
+const secretButtons = document.querySelectorAll('.secretAnswer')
 
 const presQuestionText = document.querySelectorAll('.presQuestion');
 const pizzaQuestionText = document.querySelectorAll('.pizzaQuestion');
 const geoQuestionText = document.querySelectorAll('.geoQuestion');
 const txQuestionText = document.querySelectorAll('.txQuestion');
+const secretText = document.querySelectorAll('.secretQuestion')
 
 const instructions = document.querySelector('.instructions');
 
@@ -513,13 +515,14 @@ instructions.addEventListener('click', showInstructions)
 // functions
 function init() {
     console.log('running');
-    triviaList = ['U.S. Presidents Trivia', 'Texas Trivia', 'Pizza Trivia', 'Geography Trivia'];
+    triviaList = ['U.S. Presidents Trivia', 'Texas Trivia', 'Pizza Trivia', 'Geography Trivia', 'Secret Trivia'];
     answerList = [];
     answerCheckList = [];
     presidentAnswers = [];
     pizzaAnswers = [];
     texasAnswers = [];
     geographyAnswers = [];
+    secretAnswers = [];
     currentTrivia = '';
     $('.instructionsText').hide();
     $('.boxes').hide();
@@ -529,6 +532,8 @@ function init() {
     $('.pizza').hide();
     $('.geography').hide();
     $('.texas').hide();
+    $('.secret').hide();
+    $('#triviaSecret').hide();
 }
 
 function returnToMenu() {
@@ -540,13 +545,24 @@ function returnToMenu() {
     $('.pizza').hide();
     $('.geography').hide();
     $('.texas').hide();
-    trivia.forEach(function (element, idx) { //change names back
+    $('.secret').hide();
+    trivia.forEach(function (element, idx) { 
         element.textContent = triviaList[idx];
         idx++;
     })
     console.log('returning to menu');
     answerList = [];
     answerCheckList = [];
+    if (presidentAnswers === true && texasAnswers === true && pizzaAnswers === true && geographyAnswers === true) {
+        $('#triviaSecret').show();
+        $('#trivia1').hide();
+        $('#trivia2').hide();
+        $('#trivia3').hide();
+        $('#trivia4').hide();
+        $('.instructions').hide();
+        $('.welcome').hide();
+        console.log('secret trivia activated')
+    }
     if (presidentAnswers === true) {
         $("#trivia1").css("background-color", 'green');
     }
@@ -563,6 +579,13 @@ function returnToMenu() {
 
 function triviaSelect() {
     console.log('Selected: ' + event.target.innerHTML);
+    if (event.target.innerHTML === 'Secret Trivia') {
+        $('#triviaSecret').hide();
+        $('.secret').show();
+        currentTrivia = secretTrivia[0];
+        answerButtons = secretButtons;
+        questionText = secretText;
+    }
     if (event.target.innerHTML === 'U.S. Presidents Trivia') {
         $('.main-splash').hide();
         $('.presidents').show();
@@ -632,10 +655,10 @@ function nextQuestion() {
 }
 
 function answerRender() {
-    console.log('running Answer render function')
     if (event.target.localName !== 'button' || event.target.className === 'play' ||event.target.className === 'trivia-menu') {
         return;
     }
+    console.log('running Answer render function')
     currentTrivia.questions[questionNumber].answer = event.target.textContent;
     console.log(currentQuestion + ' setting answer to ' + currentTrivia.questions[questionNumber].answer);
     if (questionNumber === 9) {
@@ -655,6 +678,7 @@ function render() {
     $('.pizza').hide();
     $('.geography').hide();
     $('.texas').hide();
+    $('.secret').hide();
     questionNumber = 0;
     numberCorrect = 0;
     answerCheckList = [];
