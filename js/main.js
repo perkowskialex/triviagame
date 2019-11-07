@@ -537,6 +537,17 @@ function init() {
     $('.thanks').hide();
 }
 
+function thanksForPlaying() {
+    $('.thanks').show();
+    $('#triviaSecret').hide();
+    body.style.backgroundColor = 'purple';
+    body.style.color = 'gold';
+    let img = document.createElement('img');
+    img.src = 'https://i.imgur.com/iNiKD7x.jpg';
+    body.append(img);
+    $('.main.splash').hide();
+}
+
 function returnToMenu() {
     $('.main-splash').show();
     $('.boxes').hide();
@@ -555,10 +566,9 @@ function returnToMenu() {
     answerList = [];
     answerCheckList = [];
     if (secretAnswers === true) {
-        $('.thanks').show();
-        $('.#triviaSelect').hide();
+        thanksForPlaying();
     } 
-    if (presidentAnswers === true && texasAnswers === true && pizzaAnswers === true && geographyAnswers === true) {
+    if (presidentAnswers === true && texasAnswers === true && pizzaAnswers === true && geographyAnswers === true && secretAnswers !== true) {
         $('#triviaSecret').show();
         $('#trivia1').hide();
         $('#trivia2').hide();
