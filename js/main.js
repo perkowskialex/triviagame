@@ -540,7 +540,7 @@ function returnToMenu() {
     $('.pizza').hide();
     $('.geography').hide();
     $('.texas').hide();
-    trivia.forEach(function (element, idx) { //change names back
+    trivia.forEach(function (element, idx) { 
         element.textContent = triviaList[idx];
         idx++;
     })
@@ -608,36 +608,26 @@ function play() {
     answerList = [];
     questionNumber = 0;
     nextQuestion();
-    // currentQuestion = currentTrivia.questions[questionNumber].question;
-    // questionText[0].textContent = currentQuestion;
     answerButtons.forEach(element => {
         addEventListener('click', nextQuestion);
         addEventListener('click',answerRender);
-        // addEventListener('click',questionIterate);
     });
     answerButtons.forEach(function (element, idx) {
         element.textContent = currentTrivia.questions[questionNumber].answers[idx];
     })
     }
 
-// think about breaking this logic into two function
 function questionIterate() {
     questionNumber++
 }
 
-function nextQuestion() { // here
-    // if (questionNumber === 10) {
-    //     render();
-    //     return;
-    // }
+function nextQuestion() { 
     if (event.target.localName !== 'button' || event.target.className === 'play' ||event.target.className === 'trivia-menu') {
         return;
     }
     currentQuestion = currentTrivia.questions[questionNumber].question;
     questionText[0].textContent = currentQuestion;
     console.log('running nextQuestion function')
-    // questionNumber++; // this only changes the variable in js memeory but does trigger the dom to do anything 
-    // so you want to put that function here in this event listener it sheould rerender every thing in the dom
     console.log('current question is: ' + currentQuestion)
 }
 
@@ -670,10 +660,6 @@ function render() {
     answerCheckList = [];
     console.log("***RENDER FUNCTION***");
     console.log('current trivia is: ' + currentTrivia.category)
-    // currentTrivia.questions.forEach(function (element, idx, question) {
-    //     console.log('answer input: '+question[idx].answer + "   |||  correct input: " + question[idx].correct);
-    //     idx++;
-    // });
     currentTrivia.questions.forEach(function (element, idx, question) {
         if (question[idx].answer === question[idx].correct) {
             answerCheckList.push('1');
@@ -690,7 +676,6 @@ function render() {
 }
 
 function drawAnswers() {
-    // this function will show all answers and their selection
     answerElement = document.createElement('answers');
     currentTrivia.questions.forEach(function (element, idx, question) {
         answerList.push(question[idx].answer);
@@ -704,7 +689,6 @@ function drawAnswers() {
 function drawBoxes() {
     $('.boxes').show();
     box.forEach(function (element, idx, box) {
-        // console.log('box is: '+box[idx].id);
         if (answerCheckList[idx] === '1') {
             console.log("Box #" + box[idx].id + ' is correct --- changing to green')
             box[idx].style.backgroundColor = 'chartreuse';
