@@ -529,6 +529,7 @@ function init() {
     $('.pizza').hide();
     $('.geography').hide();
     $('.texas').hide();
+    $('.secret').hide();
 }
 
 function returnToMenu() {
@@ -540,6 +541,7 @@ function returnToMenu() {
     $('.pizza').hide();
     $('.geography').hide();
     $('.texas').hide();
+    $('.secret').hide();
     trivia.forEach(function (element, idx) { 
         element.textContent = triviaList[idx];
         idx++;
@@ -559,10 +561,17 @@ function returnToMenu() {
     if (geographyAnswers=== true) {
         $("#trivia4").css("background-color", 'green');
     }
+    if (presidentAnswers === true && texasAnswers=== true && pizzaAnswers=== true && geographyAnswers=== true) {
+        $('.secret-menu').show();
+        $('.secret').show();
+    }
 }
 
 function triviaSelect() {
     console.log('Selected: ' + event.target.innerHTML);
+    if (event.target.innerHTML === 'Secret Trivia') {
+        $('.secret-menu').hide();
+    }
     if (event.target.innerHTML === 'U.S. Presidents Trivia') {
         $('.main-splash').hide();
         $('.presidents').show();
