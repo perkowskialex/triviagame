@@ -702,10 +702,11 @@ function render() {
 function drawAnswers() {
     answerElement = document.createElement('answers');
     currentTrivia.questions.forEach(function (element, idx, question) {
-        answerList.push(question[idx].answer);
+        answerList.push(' ' + (idx+1) + ': ' + question[idx].answer);
     });
     answerElement.className = "answers"
     body.appendChild(answerElement)    
+    answerList.join().split(',');
     answerElement.style.fontSize = '20px';
     answerElement.append('Your Answers: ' + answerList);
 }  
@@ -714,13 +715,14 @@ function drawBoxes() {
     $('.boxes').show();
     box.forEach(function (element, idx, box) {
         if (answerCheckList[idx] === '1') {
-            console.log("Box #" + box[idx].id + ' is correct --- changing to green')
-            box[idx].style.backgroundColor = 'chartreuse';
+            console.log(box[idx].id + ' is correct --- changing to green')
+            box[idx].style.backgroundColor = 'forestgreen';
+            // box[idx].style.color = 'chartreuse';
         }
         if (answerCheckList[idx] === '0') {
             box[idx].style.backgroundColor = 'darkred';
+            // box[idx].style.color = 'darkred';
         }
-        box[idx].innerHTML = '';
         idx++
     });
 }
