@@ -388,92 +388,92 @@ const secretTrivia = [
         questions: [
             //1
             {
-                question: '',
+                question: 'A?',
                 answers: [
-                    '', '', '', ''
+                    'A', 'B', 'C', 'D'
                 ],
-                correct: '',
+                correct: 'A',
                 answer: null
             },
             //2
             {
-                question: '',
+                question: 'Mos Def?',
                 answers: [
-                    '', '', '', ''
+                    'Mathematics', 'Dante Terrell Smith', 'Its the mighty Mos Def', 'Yasiin Bey'
                 ],
-                correct: '',
+                correct: 'Yasiin Bey',
                 answer: null
             },
             //3
             {
-                question: '',
+                question: 'Secret Trivia?',
                 answers: [
-                    '', '', '', '',
+                    'These are really bad questions', "I'm testing the functionality", 'C', 'Why would you make this',
                 ],
-                correct: '',
+                correct: 'C',
                 answer: null
             },
             //4
             {
-                question: '',
+                question: 'What was your favorite trivia?',
                 answers: [
-                    '', '', '', '',
+                    'Presidents', 'Geography', 'Texas', 'Pizza',
                 ],
-                correct: '',
+                correct: 'Pizza',
                 answer: null
             },
             //5
             {
-                question: '',
+                question: 'Where are you right now?',
                 answers: [
-                    '', '', '', '',
+                    'At home', 'In a pizzeria', 'Texas', 'Austin',
                 ],
-                correct: '',
+                correct: 'Austin',
                 answer: null
             },
             //6 
             {
-                question: '',
+                question: 'So this quiz is complete nonsense?',
                 answers: [
-                    '', '', '', '',
+                    'Yes', 'Absolutely', 'Most Absolutely', 'Definitely',
                 ],
-                correct: '',
+                correct: 'Yes',
                 answer: null
             },
             //7
             {
-                question: '',
+                question: 'Best Big Cat?',
                 answers: [
-                    '', '', '', '',
+                    'Jaguar', 'Lion', 'Tiger', 'Leopard',
                 ],
-                correct: '',
+                correct: 'Jaguar',
                 answer: null
             },
             //8    
             {
-                question: '',
+                question: 'You cannot make every question subjective, that is not how trivia works',
                 answers: [
-                    '', '', '', '',
+                    'Sorry', 'But', 'I', 'Could not care less',
                 ],
-                correct: '',
+                correct: 'I',
                 answer: null
             },
             //9
             {
-                question: '',
+                question: 'I was going to make this Sean Kingston themed but that would be tough',
                 answers: [
-                    '', '', '', '',
+                    'OK', 'OKAY', 'O K', 'Alright',
                 ],
-                correct: '',
+                correct: 'O K',
                 answer: null
             },
             //10
             {
-                question: '',
+                question: 'Turns out there is not a lot of Sean Kingston trivia',
                 answers: [
-                    '', '', '', '',
+                    'That makes sense', 'SEAN KINGSTON!', 'Sean Kingston was really young when he became famous, that would be a good question', 'Line Break',
                 ],
-                correct: '',
+                correct: 'SEAN KINGSTON!',
                 answer: null
             }
         ]
