@@ -7,7 +7,7 @@ User stories:
 * As a user, I want to be able to: see how well or poorly I performed.
 * As a user, I want to be able to: play multiple games of trivia without restarting from the splash.
 
-Design: 
+# Wireframe Design: 
 
 ## Splash Screen
 ![Image](https://i.imgur.com/9oLJtYt.png)
@@ -17,3 +17,17 @@ Design:
 
 ## End Game
 ![Image](https://i.imgur.com/YUfiW29.png)
+
+# Final Design:
+
+## Splash Screen:
+![Image](https://i.imgur.com/J9M6erU.png)
+
+## Pick an answer:
+![Image](https://i.imgur.com/RPUdBt9.png)
+
+## End Game:
+![Image](https://i.imgur.com/3lIkV98.png)
+
+## Secret Trivia: 
+![Image](https://i.imgur.com/3Jm6eDw.png)
