@@ -491,11 +491,13 @@ const presButtons = document.querySelectorAll('.presAnswer');
 const pizzaButtons = document.querySelectorAll('.pizzaAnswer');
 const txButtons = document.querySelectorAll('.txAnswer');
 const geoButtons = document.querySelectorAll('.geoAnswer');
+const secretButtons = document.querySelectorAll('.secretAnswer')
 
 const presQuestionText = document.querySelectorAll('.presQuestion');
 const pizzaQuestionText = document.querySelectorAll('.pizzaQuestion');
 const geoQuestionText = document.querySelectorAll('.geoQuestion');
 const txQuestionText = document.querySelectorAll('.txQuestion');
+const secretText = document.querySelectorAll('.secretQuestion')
 
 const instructions = document.querySelector('.instructions');
 
@@ -513,13 +515,14 @@ instructions.addEventListener('click', showInstructions)
 // functions
 function init() {
     console.log('running');
-    triviaList = ['U.S. Presidents Trivia', 'Texas Trivia', 'Pizza Trivia', 'Geography Trivia'];
+    triviaList = ['U.S. Presidents Trivia', 'Texas Trivia', 'Pizza Trivia', 'Geography Trivia', 'Secret Trivia'];
     answerList = [];
     answerCheckList = [];
     presidentAnswers = [];
     pizzaAnswers = [];
     texasAnswers = [];
     geographyAnswers = [];
+    secretAnswers = [];
     currentTrivia = '';
     $('.instructionsText').hide();
     $('.boxes').hide();
@@ -530,6 +533,7 @@ function init() {
     $('.geography').hide();
     $('.texas').hide();
     $('.secret').hide();
+    $('#triviaSecret').hide();
 }
 
 function returnToMenu() {
@@ -549,6 +553,16 @@ function returnToMenu() {
     console.log('returning to menu');
     answerList = [];
     answerCheckList = [];
+    if (presidentAnswers === true && texasAnswers === true && pizzaAnswers === true && geographyAnswers === true) {
+        $('#triviaSecret').show();
+        $('#trivia1').hide();
+        $('#trivia2').hide();
+        $('#trivia3').hide();
+        $('#trivia4').hide();
+        $('.instructions').hide();
+        $('.welcome').hide();
+        console.log('secret trivia activated')
+    }
     if (presidentAnswers === true) {
         $("#trivia1").css("background-color", 'green');
     }
@@ -561,16 +575,16 @@ function returnToMenu() {
     if (geographyAnswers=== true) {
         $("#trivia4").css("background-color", 'green');
     }
-    if (presidentAnswers === true && texasAnswers=== true && pizzaAnswers=== true && geographyAnswers=== true) {
-        $('.secret-menu').show();
-        $('.secret').show();
-    }
 }
 
 function triviaSelect() {
     console.log('Selected: ' + event.target.innerHTML);
     if (event.target.innerHTML === 'Secret Trivia') {
-        $('.secret-menu').hide();
+        $('#triviaSecret').hide();
+        $('.secret').show();
+        currentTrivia = secretTrivia[0];
+        answerButtons = secretButtons;
+        questionText = secretText;
     }
     if (event.target.innerHTML === 'U.S. Presidents Trivia') {
         $('.main-splash').hide();
@@ -641,10 +655,10 @@ function nextQuestion() {
 }
 
 function answerRender() {
-    console.log('running Answer render function')
     if (event.target.localName !== 'button' || event.target.className === 'play' ||event.target.className === 'trivia-menu') {
         return;
     }
+    console.log('running Answer render function')
     currentTrivia.questions[questionNumber].answer = event.target.textContent;
     console.log(currentQuestion + ' setting answer to ' + currentTrivia.questions[questionNumber].answer);
     if (questionNumber === 9) {
@@ -664,6 +678,7 @@ function render() {
     $('.pizza').hide();
     $('.geography').hide();
     $('.texas').hide();
+    $('.secret').hide();
     questionNumber = 0;
     numberCorrect = 0;
     answerCheckList = [];
