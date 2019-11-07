@@ -626,17 +626,16 @@ function questionIterate() {
 }
 
 function nextQuestion() { // here
-    if (questionNumber === 10) {
-        render();
-        return;
-    }
+    // if (questionNumber === 10) {
+    //     render();
+    //     return;
+    // }
     if (event.target.localName !== 'button' || event.target.className === 'play' ||event.target.className === 'trivia-menu') {
         return;
     }
     currentQuestion = currentTrivia.questions[questionNumber].question;
     questionText[0].textContent = currentQuestion;
     console.log('running nextQuestion function')
-    console.log('question number: ' + questionNumber)
     // questionNumber++; // this only changes the variable in js memeory but does trigger the dom to do anything 
     // so you want to put that function here in this event listener it sheould rerender every thing in the dom
     console.log('current question is: ' + currentQuestion)
@@ -647,17 +646,17 @@ function answerRender() {
     if (event.target.localName !== 'button' || event.target.className === 'play' ||event.target.className === 'trivia-menu') {
         return;
     }
+    currentTrivia.questions[questionNumber].answer = event.target.textContent;
+    console.log(currentQuestion + ' setting answer to ' + currentTrivia.questions[questionNumber].answer);
     if (questionNumber === 9) {
         render();
         return;
     }
-    currentTrivia.questions[questionNumber].answer = event.target.textContent;
-    console.log('current answer is '+currentAnswer)
     questionIterate();
+    console.log('QUESTION ###: ' + questionNumber)
     answerButtons.forEach(function (element, idx) {
         element.textContent = currentTrivia.questions[questionNumber].answers[idx];
     })
-    console.log(currentQuestion + ' setting answer to ' + currentAnswer);
     nextQuestion();
 }
 
@@ -669,8 +668,12 @@ function render() {
     questionNumber = 0;
     numberCorrect = 0;
     answerCheckList = [];
-    console.log("RENDER FUNCTION");
+    console.log("***RENDER FUNCTION***");
     console.log('current trivia is: ' + currentTrivia.category)
+    // currentTrivia.questions.forEach(function (element, idx, question) {
+    //     console.log('answer input: '+question[idx].answer + "   |||  correct input: " + question[idx].correct);
+    //     idx++;
+    // });
     currentTrivia.questions.forEach(function (element, idx, question) {
         if (question[idx].answer === question[idx].correct) {
             answerCheckList.push('1');
