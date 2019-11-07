@@ -502,7 +502,7 @@ const secretText = document.querySelectorAll('.secretQuestion')
 const instructions = document.querySelector('.instructions');
 
 // app state variables
-let triviaList, answerButtons, questionNumber, answerList, numberCorrect, numberWrong, answerCheckList, presidentAnswers, pizzaAnswers, texasAnswers, geographyAnswers, currentTrivia, currentQuestion, currentAnswer;
+let triviaList, answerButtons, questionNumber, answerList, numberCorrect, answerCheckList, presidentAnswers, pizzaAnswers, texasAnswers, geographyAnswers, currentTrivia, currentQuestion;
 
 //event listeners
 trivia.forEach(element => {
@@ -534,6 +534,7 @@ function init() {
     $('.texas').hide();
     $('.secret').hide();
     $('#triviaSecret').hide();
+    $('.thanks').hide();
 }
 
 function returnToMenu() {
@@ -553,6 +554,10 @@ function returnToMenu() {
     console.log('returning to menu');
     answerList = [];
     answerCheckList = [];
+    if (secretAnswers === true) {
+        $('.thanks').show();
+        $('.#triviaSelect').hide();
+    } 
     if (presidentAnswers === true && texasAnswers === true && pizzaAnswers === true && geographyAnswers === true) {
         $('#triviaSecret').show();
         $('#trivia1').hide();
@@ -585,6 +590,7 @@ function triviaSelect() {
         currentTrivia = secretTrivia[0];
         answerButtons = secretButtons;
         questionText = secretText;
+        secretAnswers = true;
     }
     if (event.target.innerHTML === 'U.S. Presidents Trivia') {
         $('.main-splash').hide();

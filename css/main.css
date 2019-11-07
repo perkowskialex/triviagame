@@ -32,7 +32,7 @@ body {
     background-color: steelblue;
 }
 
-.welcome {
+.welcome, .thanks {
     display: flex;
     padding: 0 5% 5vh 5%;
     font-size: 64px;
