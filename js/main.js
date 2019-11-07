@@ -611,7 +611,7 @@ function play() {
     // currentQuestion = currentTrivia.questions[questionNumber].question;
     // questionText[0].textContent = currentQuestion;
     answerButtons.forEach(element => {
-        // addEventListener('click', nextQuestion);
+        addEventListener('click', nextQuestion);
         addEventListener('click',answerRender);
         // addEventListener('click',questionIterate);
     });
@@ -640,7 +640,6 @@ function nextQuestion() { // here
     // questionNumber++; // this only changes the variable in js memeory but does trigger the dom to do anything 
     // so you want to put that function here in this event listener it sheould rerender every thing in the dom
     console.log('current question is: ' + currentQuestion)
-    questionIterate();
 }
 
 function answerRender() {
@@ -648,15 +647,17 @@ function answerRender() {
     if (event.target.localName !== 'button' || event.target.className === 'play' ||event.target.className === 'trivia-menu') {
         return;
     }
-    if (questionNumber === 10) {
+    if (questionNumber === 9) {
         render();
         return;
     }
     currentTrivia.questions[questionNumber].answer = event.target.textContent;
+    console.log('current answer is '+currentAnswer)
+    questionIterate();
     answerButtons.forEach(function (element, idx) {
         element.textContent = currentTrivia.questions[questionNumber].answers[idx];
     })
-    console.log(currentQuestion + ' setting answer to ' + currentTrivia.questions[questionNumber].answer);
+    console.log(currentQuestion + ' setting answer to ' + currentAnswer);
     nextQuestion();
 }
 
