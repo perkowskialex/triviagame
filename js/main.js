@@ -543,6 +543,7 @@ function thanksForPlaying() {
     body.style.backgroundColor = 'purple';
     body.style.color = 'gold';
     let img = document.createElement('img');
+    img.className = 'img';
     img.src = 'https://i.imgur.com/iNiKD7x.jpg';
     body.append(img);
     $('.main.splash').hide();
