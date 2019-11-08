@@ -406,11 +406,11 @@ const secretTrivia = [
             },
             //3
             {
-                question: 'Secret Trivia?',
+                question: 'What day is it?',
                 answers: [
-                    'These are really bad questions', "I'm testing the functionality", 'C', 'Why would you make this',
+                    'Presentation Day', "Friday", 'tuesday', 'November 8th',
                 ],
-                correct: 'C',
+                correct: 'Presentation Day',
                 answer: null
             },
             //4
@@ -433,7 +433,7 @@ const secretTrivia = [
             },
             //6 
             {
-                question: 'So this quiz is complete nonsense?',
+                question: 'Are you enjoying General Assembly?',
                 answers: [
                     'Yes', 'Absolutely', 'Most Absolutely', 'Definitely',
                 ],
@@ -462,7 +462,7 @@ const secretTrivia = [
             {
                 question: 'I was going to make this Sean Kingston themed but that would be tough',
                 answers: [
-                    'OK', 'OKAY', 'O K', 'Alright',
+                    'OK', 'OKAY', 'O K', 'SEAN KINGSTON',
                 ],
                 correct: 'O K',
                 answer: null
@@ -471,7 +471,7 @@ const secretTrivia = [
             {
                 question: 'Turns out there is not a lot of Sean Kingston trivia',
                 answers: [
-                    'That makes sense', 'SEAN KINGSTON!', 'Sean Kingston was really young when he became famous, that would be a good question', 'Line Break',
+                    'That makes sense', 'SEAN KINGSTON!', 'I could only find 3 good questions', 'Line Break',
                 ],
                 correct: 'SEAN KINGSTON!',
                 answer: null
@@ -558,7 +558,7 @@ function returnToMenu() {
     $('.geography').hide();
     $('.texas').hide();
     $('.secret').hide();
-    trivia.forEach(function (element, idx) { 
+    trivia.forEach(function (element, idx) {
         element.textContent = triviaList[idx];
         idx++;
     })
@@ -567,7 +567,7 @@ function returnToMenu() {
     answerCheckList = [];
     if (secretAnswers === true) {
         thanksForPlaying();
-    } 
+    }
     if (presidentAnswers === true && texasAnswers === true && pizzaAnswers === true && geographyAnswers === true && secretAnswers !== true) {
         $('#triviaSecret').show();
         $('#trivia1').hide();
@@ -581,13 +581,13 @@ function returnToMenu() {
     if (presidentAnswers === true) {
         $("#trivia1").css("background-color", 'green');
     }
-    if (texasAnswers=== true) {
+    if (texasAnswers === true) {
         $("#trivia2").css("background-color", 'green');
     }
-    if (pizzaAnswers=== true) {
+    if (pizzaAnswers === true) {
         $("#trivia3").css("background-color", 'green');
     }
-    if (geographyAnswers=== true) {
+    if (geographyAnswers === true) {
         $("#trivia4").css("background-color", 'green');
     }
 }
@@ -605,7 +605,7 @@ function triviaSelect() {
     if (event.target.innerHTML === 'U.S. Presidents Trivia') {
         $('.main-splash').hide();
         $('.presidents').show();
-        presidentAnswers = true; 
+        presidentAnswers = true;
         currentTrivia = allTrivia[0];
         answerButtons = presButtons
         questionText = presQuestionText;
@@ -621,7 +621,7 @@ function triviaSelect() {
     if (event.target.innerHTML === 'Geography Trivia') {
         $('.main-splash').hide();
         $('.geography').show();
-        geographyAnswers = true; 
+        geographyAnswers = true;
         currentTrivia = allTrivia[2];
         answerButtons = geoButtons
         questionText = geoQuestionText;
@@ -649,19 +649,19 @@ function play() {
     nextQuestion();
     answerButtons.forEach(element => {
         addEventListener('click', nextQuestion);
-        addEventListener('click',answerRender);
+        addEventListener('click', answerRender);
     });
     answerButtons.forEach(function (element, idx) {
         element.textContent = currentTrivia.questions[questionNumber].answers[idx];
     })
-    }
+}
 
 function questionIterate() {
     questionNumber++
 }
 
-function nextQuestion() { 
-    if (event.target.localName !== 'button' || event.target.className === 'play' ||event.target.className === 'trivia-menu') {
+function nextQuestion() {
+    if (event.target.localName !== 'button' || event.target.className === 'play' || event.target.className === 'trivia-menu') {
         return;
     }
     currentQuestion = currentTrivia.questions[questionNumber].question;
@@ -671,7 +671,7 @@ function nextQuestion() {
 }
 
 function answerRender() {
-    if (event.target.localName !== 'button' || event.target.className === 'play' ||event.target.className === 'trivia-menu') {
+    if (event.target.localName !== 'button' || event.target.className === 'play' || event.target.className === 'trivia-menu') {
         return;
     }
     console.log('running Answer render function')
@@ -718,14 +718,14 @@ function render() {
 function drawAnswers() {
     answerElement = document.createElement('answers');
     currentTrivia.questions.forEach(function (element, idx, question) {
-        answerList.push(' ' + (idx+1) + ': ' + question[idx].answer);
+        answerList.push(' ' + (idx + 1) + ': ' + question[idx].answer);
     });
     answerElement.className = "answers"
-    body.appendChild(answerElement)    
+    body.appendChild(answerElement)
     answerList.join().split(',');
     answerElement.style.fontSize = '20px';
     answerElement.append('Your Answers: ' + answerList);
-}  
+}
 
 function drawBoxes() {
     $('.boxes').show();
@@ -733,11 +733,9 @@ function drawBoxes() {
         if (answerCheckList[idx] === '1') {
             console.log(box[idx].id + ' is correct --- changing to green')
             box[idx].style.backgroundColor = 'forestgreen';
-            // box[idx].style.color = 'chartreuse';
         }
         if (answerCheckList[idx] === '0') {
             box[idx].style.backgroundColor = 'darkred';
-            // box[idx].style.color = 'darkred';
         }
         idx++
     });
