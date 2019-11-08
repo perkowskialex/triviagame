@@ -14,6 +14,7 @@ body {
     flex-direction:column;
     height: 100vh;
     width: 100vw;
+    border: 5px solid mistyrose;
 }
 
 .main-splash {
@@ -23,7 +24,7 @@ body {
 .welcome, .thanks {
     display: flex;
     padding: 0 5% 5vh 5%;
-    font-size: 64px;
+    font-size: 150%;
     letter-spacing: 3px;
     font-weight: bold;
     justify-content: center;
@@ -78,15 +79,15 @@ body {
 }
 
 #trivia3 {
-    background-color: slategray;
+    background-color: tomato;
     color: whitesmoke;
     border: 2px solid whitesmoke;
 }
 
 #trivia3:hover {
     background-color: whitesmoke;
-    color: slategray;
-    border: 2px solid slategray;
+    color: tomato;
+    border: 2px solid tomato;
 }
 
 #trivia4 {
@@ -151,7 +152,7 @@ body {
     display: flex;
     padding: 10px;
     margin: 10px;
-    font-size: 20px;
+    font-size: 50%;
     width: 15vw;
     height: 15vh;
     justify-content: center;
@@ -159,58 +160,38 @@ body {
     align-items: space-evenly;
 }
 
-.presidents {
+.presidents, .texas, .pizza, .geography, .secret {
     width: 100%;
     height: 100%;
-    background-color: firebrick;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0;
+}
+
+.presidents {
+    background-color: firebrick;
 }
 .texas {
-    width: 100vw;
-    height: 100vh;
     background-color: midnightblue;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 .pizza {
-    width: 100vw;
-    height: 100vh;
     background-color: peru;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 .geography {
-    width: 100vw;
-    height: 100vh;
     background-color: midnightblue;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .secret {
-    width: 100vw;
-    height: 100vh;
     background-color: purple;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .presAnswer, .pizzaAnswer, .geoAnswer, .txAnswer,.secretAnswer {
     display: flex;
     padding: 10px;
     margin: 10px;
-    font-size: 20px;
+    font-size: 50%;
     width: 25%;
     height: 10vh;
     justify-content: center;
@@ -268,15 +249,15 @@ body {
 }
 
 .pizzaAnswer {
-    background-color: slategray;
+    background-color: tomato;
     color: whitesmoke;
     border: 2px solid whitesmoke;
 }
 
 .pizzaAnswer:hover {
     background-color: whitesmoke;
-    color: slategray;
-    border: 2px solid slategray;
+    color: tomato;
+    border: 2px solid tomato;
 }
 
 .trivia-menu {
@@ -332,4 +313,9 @@ body {
     align-items: center;
     text-align: center;
     padding: 5% 0;
+}
+
+.img {
+    height: 80%;
+    width: 80%;
 }
