@@ -510,7 +510,7 @@ trivia.forEach(element => {
 });
 triviaMenu.addEventListener('click', returnToMenu);
 instructions.addEventListener('click', showInstructions)
-
+//
 
 // functions
 function init() {
@@ -710,7 +710,7 @@ function render() {
         }
         idx++;
     });
-    console.log('correct indices are: ' + answerCheckList)
+    console.log('truthy/falsey answers are: ' + answerCheckList)
     drawAnswers();
     drawBoxes();
     $('.trivia-menu').show();
